@@ -21,6 +21,7 @@ function creditProduct(
     id,
     categoryId: CATEGORY_ID,
     categorySlug: "aws-credit-accounts",
+    provider: "AWS",
     name: `Buy AWS ${kLabel} Credit Account`,
     slug,
     shortDescription: `AWS account pre-loaded with ${creditLabel} of promotional credit.`,

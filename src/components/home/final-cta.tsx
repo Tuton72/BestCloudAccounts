@@ -1,7 +1,20 @@
 import { Button } from "@/components/ui/button";
 import { Container } from "@/components/ui/container";
 
-export function FinalCTA() {
+interface FinalCTAProps {
+  heading?: string;
+  description?: string;
+  primaryCta?: { label: string; href: string };
+  secondaryCta?: { label: string; href: string };
+}
+
+/** Reused across the homepage, AWS pages, Cloud Accounts pages, and product details. */
+export function FinalCTA({
+  heading = "Ready to find the right AWS account?",
+  description = "Browse the full catalog of AWS Accounts, AWS AI Accounts, and AWS Credit Accounts — pricing is shown up front on every product.",
+  primaryCta = { label: "Browse AWS Products", href: "/aws" },
+  secondaryCta = { label: "Contact Support", href: "/contact" },
+}: FinalCTAProps) {
   return (
     <section className="border-t border-border py-16 sm:py-20">
       <Container>
@@ -12,19 +25,14 @@ export function FinalCTA() {
             <div className="absolute inset-0 bg-[radial-gradient(20%_20%_at_50%_45%,rgba(245,158,11,0.05),transparent)]" />
           </div>
           <div className="relative">
-            <h2 className="text-2xl font-semibold tracking-tight text-ink sm:text-3xl">
-              Ready to find the right AWS account?
-            </h2>
-            <p className="mx-auto mt-3 max-w-xl text-ink-muted">
-              Browse the full catalog of AWS Accounts, AWS AI Accounts, and AWS Credit Accounts — pricing is
-              shown up front on every product.
-            </p>
+            <h2 className="text-2xl font-semibold tracking-tight text-ink sm:text-3xl">{heading}</h2>
+            <p className="mx-auto mt-3 max-w-xl text-ink-muted">{description}</p>
             <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
-              <Button href="/aws" size="lg">
-                Browse AWS Products
+              <Button href={primaryCta.href} size="lg">
+                {primaryCta.label}
               </Button>
-              <Button href="/contact" variant="secondary" size="lg">
-                Contact Support
+              <Button href={secondaryCta.href} variant="secondary" size="lg">
+                {secondaryCta.label}
               </Button>
             </div>
           </div>

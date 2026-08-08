@@ -15,10 +15,10 @@ export function CategoryGrid({ categories, products }: CategoryGridProps) {
         <SectionHeading
           eyebrow="Browse by Category"
           heading="Find the Right Account Type"
-          subheading="Three focused product lines, each covering a different way to run on AWS."
+          subheading="Cloud accounts across major providers, plus a focused AWS lineup — each category covers a different way to run in the cloud."
           className="mb-12"
         />
-        <div className="grid grid-cols-1 gap-5 sm:grid-cols-3">
+        <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
           {categories.map((category) => (
             <CategoryCard
               key={category.id}

@@ -2,6 +2,14 @@ import type { Category } from "@/types/catalog";
 
 export const CATEGORIES: Category[] = [
   {
+    id: "a0000000-0000-4000-8000-000000000004",
+    name: "Cloud Accounts",
+    slug: "cloud-accounts",
+    description: "Accounts across major cloud providers beyond AWS — one marketplace, multiple providers.",
+    parentId: null,
+    sortOrder: 0,
+  },
+  {
     id: "a0000000-0000-4000-8000-000000000001",
     name: "AWS Accounts",
     slug: "aws-accounts",

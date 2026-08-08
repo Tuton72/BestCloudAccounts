@@ -13,9 +13,13 @@ export type ProductStatus = "draft" | "active" | "archived";
 
 /** Category slugs double as the product route prefix, e.g. /aws-accounts/[slug]. */
 export type CategorySlug =
+  | "cloud-accounts"
   | "aws-accounts"
   | "aws-ai-accounts"
   | "aws-credit-accounts";
+
+/** Top-level category slugs that group other categories under a shared nav/breadcrumb parent (e.g. AWS). */
+export type CategoryGroupSlug = "aws";
 
 export interface Category {
   id: string;
@@ -50,10 +54,10 @@ export interface ProductVariant {
   price: number;
   /**
    * Optional comparison price. For single-configuration products this is a
-   * conventional "was / now" strikethrough price. For products explicitly
-   * marked as spanning multiple configurations (badge === "Multiple
-   * Configurations") it instead represents the top of the advertised price
-   * range, since no individual variant breakdown was provided.
+   * conventional "was / now" strikethrough price. For products spanning
+   * multiple configurations where no individual variant breakdown was
+   * provided, its presence instead signals a price range — see
+   * `Product.compareAtPrice` — and the UI renders "$min – $max".
    */
   compareAtPrice?: number | null;
   sku?: string | null;
@@ -67,6 +71,8 @@ export interface Product {
   id: string;
   categoryId: string;
   categorySlug: CategorySlug;
+  /** Cloud provider this account is for, e.g. "AWS", "Google Cloud", "Hetzner". Shown as a badge on cards/detail pages. */
+  provider: string;
   name: string;
   slug: string;
   shortDescription: string | null;

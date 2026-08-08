@@ -32,14 +32,14 @@ export function ProductPurchasePanel({ product, category }: ProductPurchasePanel
 
   if (!selectedVariant) return null;
 
-  const isRange = product.badge === "Multiple Configurations";
+  const isRange = Boolean(product.compareAtPrice);
   const stock = STOCK_LABEL[selectedVariant.stockStatus] ?? STOCK_LABEL.in_stock;
   const specEntries = Object.entries(selectedVariant.specifications);
   const href = productHref(product);
 
   return (
     <div className="rounded-2xl border border-border bg-surface-elevated p-6 sm:p-7 shadow-[0_0_0_1px_rgba(16,185,129,0.06)]">
-      <ProductBadgeRow category={category} badge={product.badge} />
+      <ProductBadgeRow provider={product.provider} category={category} badge={product.badge} />
 
       <h1 className="mt-4 text-2xl font-semibold leading-tight tracking-tight text-ink sm:text-3xl">
         {product.name}

@@ -12,12 +12,24 @@ import { Container } from "@/components/ui/container";
 import { getCategoryBySlug } from "@/lib/data/categories";
 import { getProductBySlug, getRelatedProducts } from "@/lib/data/products";
 import { buildProductJsonLd } from "@/lib/seo";
+import type { Crumb } from "@/components/ui/breadcrumbs";
 import type { CategorySlug } from "@/types/catalog";
 
 interface ProductDetailProps {
   categorySlug: CategorySlug;
   slug: string;
 }
+
+/**
+ * The three AWS sub-categories share an "AWS" parent crumb + listing page.
+ * Cloud Accounts has no such intermediate parent — its category page IS
+ * the top-level listing — so no extra crumb is inserted for it.
+ */
+const CATEGORY_PARENT_CRUMB: Partial<Record<CategorySlug, Crumb>> = {
+  "aws-accounts": { label: "AWS", href: "/aws" },
+  "aws-ai-accounts": { label: "AWS", href: "/aws" },
+  "aws-credit-accounts": { label: "AWS", href: "/aws" },
+};
 
 export async function ProductDetail({ categorySlug, slug }: ProductDetailProps) {
   const category = await getCategoryBySlug(categorySlug);
@@ -38,7 +50,7 @@ export async function ProductDetail({ categorySlug, slug }: ProductDetailProps) 
         <Breadcrumbs
           items={[
             { label: "Home", href: "/" },
-            { label: "AWS", href: "/aws" },
+            ...(CATEGORY_PARENT_CRUMB[category.slug] ? [CATEGORY_PARENT_CRUMB[category.slug]!] : []),
             { label: category.name, href: `/${category.slug}` },
             { label: product.name },
           ]}

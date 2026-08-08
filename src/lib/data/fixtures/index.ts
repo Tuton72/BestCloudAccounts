@@ -2,6 +2,7 @@ import type { Product } from "@/types/catalog";
 import { AWS_ACCOUNTS } from "./aws-accounts";
 import { AWS_AI_ACCOUNTS } from "./aws-ai-accounts";
 import { AWS_CREDIT_ACCOUNTS } from "./aws-credit-accounts";
+import { CLOUD_ACCOUNTS } from "./cloud-accounts";
 
 export { CATEGORIES } from "./categories";
 
@@ -14,6 +15,7 @@ export { CATEGORIES } from "./categories";
  * this gets swapped for real Supabase queries later.
  */
 export const ALL_PRODUCTS: Product[] = [
+  ...CLOUD_ACCOUNTS,
   ...AWS_ACCOUNTS,
   ...AWS_AI_ACCOUNTS,
   ...AWS_CREDIT_ACCOUNTS,

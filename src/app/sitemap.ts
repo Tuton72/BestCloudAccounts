@@ -5,6 +5,7 @@ import { productHref } from "@/lib/routes";
 
 const STATIC_ROUTES = [
   "",
+  "/cloud-accounts",
   "/aws",
   "/aws-accounts",
   "/aws-ai-accounts",

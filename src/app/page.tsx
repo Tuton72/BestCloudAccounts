@@ -30,6 +30,14 @@ export default async function Home() {
       <Stats stats={stats} />
       <CategoryGrid categories={categories} products={products} />
 
+      {categoryBySlug.get("cloud-accounts") ? (
+        <FeaturedCategorySection
+          category={categoryBySlug.get("cloud-accounts")!}
+          products={featuredByCategory("cloud-accounts")}
+          tinted
+        />
+      ) : null}
+
       {categoryBySlug.get("aws-accounts") ? (
         <FeaturedCategorySection
           category={categoryBySlug.get("aws-accounts")!}

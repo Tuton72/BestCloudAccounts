@@ -7,6 +7,7 @@ import { Button } from "@/components/ui/button";
 import { Container } from "@/components/ui/container";
 import { Icon } from "@/components/ui/icon";
 import { MobileNav } from "@/components/layout/mobile-nav";
+import { NavDropdown } from "@/components/layout/nav-dropdown";
 import { MAIN_NAV } from "@/config/nav";
 import { siteConfig } from "@/config/site";
 import { cn } from "@/lib/utils";
@@ -51,23 +52,11 @@ export function Header() {
 
         <nav aria-label="Primary" className="hidden md:block">
           <ul className="flex items-center gap-1">
-            {MAIN_NAV.map((item) => {
-              const active = pathname === item.href;
-              return (
-                <li key={item.href}>
-                  <Link
-                    href={item.href}
-                    aria-current={active ? "page" : undefined}
-                    className={cn(
-                      "rounded-full px-3.5 py-2 text-sm font-medium transition-colors",
-                      active ? "bg-accent/10 text-accent" : "text-ink-secondary hover:text-ink",
-                    )}
-                  >
-                    {item.label}
-                  </Link>
-                </li>
-              );
-            })}
+            {MAIN_NAV.map((item) => (
+              <li key={item.href}>
+                <NavDropdown item={item} />
+              </li>
+            ))}
           </ul>
         </nav>
 

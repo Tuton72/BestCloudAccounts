@@ -24,7 +24,7 @@ function FooterColumn({ title, links }: { title: string; links: { label: string;
 export function Footer() {
   return (
     <footer className="border-t border-border bg-canvas-secondary">
-      <Container className="grid grid-cols-2 gap-10 py-14 sm:grid-cols-2 lg:grid-cols-5">
+      <Container className="grid grid-cols-2 gap-10 py-14 sm:grid-cols-2 lg:grid-cols-6">
         <div className="col-span-2">
           <Link href="/" className="flex items-center gap-2 text-lg font-semibold tracking-tight text-ink">
             <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-gradient-to-br from-accent to-accent-cyan">
@@ -55,7 +55,8 @@ export function Footer() {
           </div>
         </div>
 
-        <FooterColumn title="Products" links={FOOTER_NAV.products} />
+        <FooterColumn title="Cloud Accounts" links={FOOTER_NAV.cloudAccounts} />
+        <FooterColumn title="AWS" links={FOOTER_NAV.aws} />
         <FooterColumn title="Company" links={FOOTER_NAV.company} />
         <FooterColumn
           title="Support"

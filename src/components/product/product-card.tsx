@@ -14,12 +14,12 @@ interface ProductCardProps {
 export function ProductCard({ product, category }: ProductCardProps) {
   const href = productHref(product);
   const defaultVariant = product.variants.find((v) => v.isDefault) ?? product.variants[0];
-  const isRange = product.badge === "Multiple Configurations";
+  const isRange = Boolean(product.compareAtPrice);
   const topSpecs = product.specifications.slice(0, 3);
 
   return (
     <div className="group relative flex flex-col rounded-2xl border border-border bg-surface p-5 transition-all duration-200 hover:-translate-y-0.5 hover:border-accent/40 hover:bg-surface-hover">
-      <ProductBadgeRow category={category} badge={product.badge} />
+      <ProductBadgeRow provider={product.provider} category={category} badge={product.badge} />
 
       <Link href={href} className="mt-4 block">
         <h3 className="line-clamp-2 text-lg font-semibold leading-snug text-ink transition-colors group-hover:text-accent-cyan">
