@@ -1,8 +1,11 @@
 import type { Metadata } from "next";
+import { AmazonAwsArticle } from "@/components/product/amazon-aws-article";
+import { ContactPrompt } from "@/components/product/contact-prompt";
 import { ProductGrid } from "@/components/product/product-grid";
 import { Breadcrumbs } from "@/components/ui/breadcrumbs";
 import { Container } from "@/components/ui/container";
 import { SectionHeading } from "@/components/ui/section-heading";
+import { articleTags } from "@/config/content/buy-aws-article";
 import { siteConfig } from "@/config/site";
 import { getCategories } from "@/lib/data/categories";
 import { getProductsByCategory } from "@/lib/data/products";
@@ -11,6 +14,7 @@ export const metadata: Metadata = {
   title: "Amazon AWS",
   description:
     "Browse the Amazon AWS collection — compute accounts, credit accounts, and AI-ready accounts, with pricing shown up front on every product.",
+  keywords: [...articleTags],
   alternates: { canonical: "/buy-aws-accounts" },
   openGraph: {
     title: `Amazon AWS | ${siteConfig.name}`,
@@ -58,7 +62,7 @@ export default async function BuyAwsAccountsPage() {
         </Container>
       </div>
 
-      <Container className="flex flex-col gap-14 py-10 sm:py-14">
+      <Container id="amazon-aws-products" className="flex scroll-mt-24 flex-col gap-14 py-10 sm:py-14">
         {SECTIONS.map((section) => {
           const sectionProducts = products.slice(section.start, section.end);
           if (sectionProducts.length === 0) return null;
@@ -70,6 +74,9 @@ export default async function BuyAwsAccountsPage() {
           );
         })}
       </Container>
+
+      <ContactPrompt />
+      <AmazonAwsArticle />
     </div>
   );
 }
