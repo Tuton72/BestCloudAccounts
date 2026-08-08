@@ -59,6 +59,24 @@ export default async function CloudAccountsPage() {
           </ul>
         </nav>
 
+        <div className="mt-6 rounded-2xl border border-accent/20 bg-accent/5 p-5 sm:p-6">
+          <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+            <div>
+              <p className="text-sm font-semibold uppercase tracking-[0.2em] text-accent-cyan">New Category</p>
+              <h2 className="mt-1 text-xl font-semibold text-ink">Browse Amazon AWS accounts</h2>
+              <p className="mt-2 max-w-2xl text-sm text-ink-muted">
+                Looking for Amazon AWS listings alongside the broader cloud provider catalog? Explore the dedicated Amazon AWS collection.
+              </p>
+            </div>
+            <Link
+              href="/buy-aws-accounts"
+              className="inline-flex items-center justify-center rounded-full bg-accent-cyan px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-accent-cyan/90"
+            >
+              Explore Amazon AWS
+            </Link>
+          </div>
+        </div>
+
         <div className="mt-6">
           <ProductGrid products={products} categories={categories} emptyMessage="No Cloud Account products yet." />
         </div>

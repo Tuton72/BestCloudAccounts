@@ -2,6 +2,7 @@ import type { Product } from "@/types/catalog";
 import { AWS_ACCOUNTS } from "./aws-accounts";
 import { AWS_AI_ACCOUNTS } from "./aws-ai-accounts";
 import { AWS_CREDIT_ACCOUNTS } from "./aws-credit-accounts";
+import { BUY_AWS_ACCOUNTS } from "./buy-aws-accounts";
 import { CLOUD_ACCOUNTS } from "./cloud-accounts";
 
 export { CATEGORIES } from "./categories";
@@ -19,4 +20,5 @@ export const ALL_PRODUCTS: Product[] = [
   ...AWS_ACCOUNTS,
   ...AWS_AI_ACCOUNTS,
   ...AWS_CREDIT_ACCOUNTS,
+  ...BUY_AWS_ACCOUNTS,
 ];

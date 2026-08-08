@@ -7,6 +7,7 @@ const STATIC_ROUTES = [
   "",
   "/cloud-accounts",
   "/aws",
+  "/buy-aws-accounts",
   "/aws-accounts",
   "/aws-ai-accounts",
   "/aws-credit-accounts",

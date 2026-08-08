@@ -8,7 +8,7 @@ export interface NavGroup extends NavItem {
   children?: NavItem[];
 }
 
-/** The 13 Cloud Account product pages — shared by the header dropdown and the footer. */
+/** The 13 Cloud Account product pages, plus the Amazon AWS listing page — shared by the header dropdown and the footer. */
 export const CLOUD_PROVIDER_LINKS: NavItem[] = [
   { label: "OVHCloud", href: "/cloud-accounts/ovhcloud-account" },
   { label: "IBM Cloud", href: "/cloud-accounts/ibm-cloud-account" },
@@ -23,6 +23,7 @@ export const CLOUD_PROVIDER_LINKS: NavItem[] = [
   { label: "Hetzner", href: "/cloud-accounts/hetzner-account" },
   { label: "DigitalOcean", href: "/cloud-accounts/digital-ocean-account" },
   { label: "Azure Accounts", href: "/cloud-accounts/azure-accounts" },
+  { label: "Amazon AWS", href: "/buy-aws-accounts" },
 ];
 
 /** The 3 AWS sub-categories — shared by the header dropdown and the footer. */

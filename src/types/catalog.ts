@@ -16,7 +16,8 @@ export type CategorySlug =
   | "cloud-accounts"
   | "aws-accounts"
   | "aws-ai-accounts"
-  | "aws-credit-accounts";
+  | "aws-credit-accounts"
+  | "buy-aws-accounts";
 
 /** Top-level category slugs that group other categories under a shared nav/breadcrumb parent (e.g. AWS). */
 export type CategoryGroupSlug = "aws";

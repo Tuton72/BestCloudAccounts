@@ -33,4 +33,12 @@ export const CATEGORIES: Category[] = [
     parentId: null,
     sortOrder: 3,
   },
+  {
+    id: "a0000000-0000-4000-8000-000000000005",
+    name: "Amazon AWS",
+    slug: "buy-aws-accounts",
+    description: "AWS compute, credit, and AI-ready accounts, listed together as their own Amazon AWS collection.",
+    parentId: null,
+    sortOrder: 4,
+  },
 ];

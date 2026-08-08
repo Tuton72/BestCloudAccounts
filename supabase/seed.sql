@@ -14,7 +14,8 @@ insert into categories (id, name, slug, description, sort_order) values
   ('a0000000-0000-4000-8000-000000000004', 'Cloud Accounts', 'cloud-accounts', 'Accounts across major cloud providers beyond AWS — one marketplace, multiple providers.', 0),
   ('a0000000-0000-4000-8000-000000000001', 'AWS Accounts', 'aws-accounts', 'Ready-to-use AWS accounts across a range of compute tiers.', 1),
   ('a0000000-0000-4000-8000-000000000002', 'AWS AI Accounts', 'aws-ai-accounts', 'AWS accounts pre-configured for AI/LLM workloads.', 2),
-  ('a0000000-0000-4000-8000-000000000003', 'AWS Credit Accounts', 'aws-credit-accounts', 'AWS accounts pre-loaded with promotional credit.', 3)
+  ('a0000000-0000-4000-8000-000000000003', 'AWS Credit Accounts', 'aws-credit-accounts', 'AWS accounts pre-loaded with promotional credit.', 3),
+  ('a0000000-0000-4000-8000-000000000005', 'Amazon AWS', 'buy-aws-accounts', 'AWS compute, credit, and AI-ready accounts, listed together as their own Amazon AWS collection.', 4)
 on conflict (id) do nothing;
 
 -- =========================================================
@@ -187,6 +188,101 @@ insert into product_specifications (product_id, label, value, sort_order) values
   ('20000000-0000-4000-8000-000000000011', 'Price Range', '$40 – $999', 1),
   ('20000000-0000-4000-8000-000000000012', 'Price Range', '$20 – $299', 1),
   ('20000000-0000-4000-8000-000000000013', 'Price Range', '$20 – $40', 1);
+
+-- =========================================================
+-- Amazon AWS (category a...0005)
+-- Same 19 products/prices/variants as AWS Accounts, AWS AI Accounts, and
+-- AWS Credit Accounts above, re-hosted under their own category/route
+-- (/buy-aws-accounts). Nothing here is new data — see buy-aws-accounts.ts.
+-- =========================================================
+insert into products (id, category_id, provider, name, slug, short_description, base_price, status, featured, badge, sort_order) values
+  ('40000000-0000-4000-8000-000000000001', 'a0000000-0000-4000-8000-000000000005', 'Amazon AWS', 'Buy AWS 512vCPU Account', '512-vcpu-account', 'High-capacity Amazon AWS account for large, demanding workloads.', 290.00, 'active', true, null, 1),
+  ('40000000-0000-4000-8000-000000000002', 'a0000000-0000-4000-8000-000000000005', 'Amazon AWS', 'Buy AWS 256vCPU Account', '256-vcpu-account', 'High-capacity Amazon AWS account for heavy compute workloads.', 180.00, 'active', true, null, 2),
+  ('40000000-0000-4000-8000-000000000003', 'a0000000-0000-4000-8000-000000000005', 'Amazon AWS', 'Buy AWS 128 vCPU Account', '128-vcpu-account', 'Mid-to-high tier Amazon AWS account for scaling workloads.', 110.00, 'active', false, null, 3),
+  ('40000000-0000-4000-8000-000000000004', 'a0000000-0000-4000-8000-000000000005', 'Amazon AWS', 'Buy AWS 64 vCPU Account', '64-vcpu-account', 'Balanced Amazon AWS account for general-purpose workloads.', 70.00, 'active', false, null, 4),
+  ('40000000-0000-4000-8000-000000000005', 'a0000000-0000-4000-8000-000000000005', 'Amazon AWS', 'Buy AWS 32 vCPU Account', '32-vcpu-account', 'Amazon AWS account available in multiple configuration tiers.', 38.00, 'active', true, 'Multiple Variants', 5),
+  ('40000000-0000-4000-8000-000000000006', 'a0000000-0000-4000-8000-000000000005', 'Amazon AWS', 'Buy AWS 8 vCPU Account', '8-vcpu-account', 'Entry-level Amazon AWS account available in multiple configuration tiers.', 20.00, 'active', false, 'Multiple Variants', 6),
+  ('40000000-0000-4000-8000-000000000007', 'a0000000-0000-4000-8000-000000000005', 'Amazon AWS', 'Buy AWS Free Trial Account', 'free-trial-account', 'Free trial Amazon AWS account to evaluate before purchasing.', 15.00, 'active', false, null, 7),
+  ('40000000-0000-4000-8000-000000000008', 'a0000000-0000-4000-8000-000000000005', 'Amazon AWS', 'Buy AWS 1k Credit Account', '1k-credit-account', 'Amazon AWS account pre-loaded with 1,000 of promotional credit.', 240.00, 'active', true, null, 8),
+  ('40000000-0000-4000-8000-000000000009', 'a0000000-0000-4000-8000-000000000005', 'Amazon AWS', 'Buy AWS 5k Credit Account', '5k-credit-account', 'Amazon AWS account pre-loaded with 5,000 of promotional credit.', 1199.00, 'active', true, null, 9),
+  ('40000000-0000-4000-8000-000000000010', 'a0000000-0000-4000-8000-000000000005', 'Amazon AWS', 'Buy AWS 10k Credit Account', '10k-credit-account', 'Amazon AWS account pre-loaded with 10,000 of promotional credit.', 2399.00, 'active', true, null, 10),
+  ('40000000-0000-4000-8000-000000000011', 'a0000000-0000-4000-8000-000000000005', 'Amazon AWS', 'Buy AWS 25k Credit Account', '25k-credit-account', 'Amazon AWS account pre-loaded with 25,000 of promotional credit.', 4999.00, 'active', false, null, 11),
+  ('40000000-0000-4000-8000-000000000012', 'a0000000-0000-4000-8000-000000000005', 'Amazon AWS', 'Buy AWS 50k Credit Account', '50k-credit-account', 'Amazon AWS account pre-loaded with 50,000 of promotional credit.', 7499.00, 'active', false, null, 12),
+  ('40000000-0000-4000-8000-000000000013', 'a0000000-0000-4000-8000-000000000005', 'Amazon AWS', 'Buy AWS 100k Credit Account', '100k-credit-account', 'Amazon AWS account pre-loaded with 100,000 of promotional credit.', 12999.00, 'active', false, null, 13),
+  ('40000000-0000-4000-8000-000000000014', 'a0000000-0000-4000-8000-000000000005', 'Amazon AWS', 'Buy AWS Account — 10 RPM | 32 vCPU | Gmail | N. Virginia | 2FA + API', '10-rpm-32-vcpu-account', 'Amazon AWS account with 10 RPM, 32 vCPU, Gmail login, and N. Virginia region.', 70.00, 'active', true, null, 14),
+  ('40000000-0000-4000-8000-000000000015', 'a0000000-0000-4000-8000-000000000005', 'Amazon AWS', 'Buy AWS Account — 50 RPM | Kiro Working | 32 vCPU | Gmail | 2FA + API', '50-rpm-kiro-32-vcpu-account', 'Amazon AWS account with 50 RPM, Kiro-working status, 32 vCPU, and Gmail login.', 220.00, 'active', true, null, 15),
+  ('40000000-0000-4000-8000-000000000016', 'a0000000-0000-4000-8000-000000000005', 'Amazon AWS', 'Buy AWS Account — 10K RPM | 4.6 Support | 5 vCPU | Multi-Year Aged', '10k-rpm-5-vcpu-aged-account', 'Multi-year aged Amazon AWS account with 10K RPM, 5 vCPU, and 4.6-rated support.', 220.00, 'active', false, 'Aged', 16),
+  ('40000000-0000-4000-8000-000000000017', 'a0000000-0000-4000-8000-000000000005', 'Amazon AWS', 'Buy AWS Account — 10K RPM | 4.6 Support | 96 vCPU | Multi-Year Aged', '10k-rpm-96-vcpu-aged-account', 'Multi-year aged Amazon AWS account with 10K RPM, 96 vCPU, and 4.6-rated support.', 350.00, 'active', false, 'Aged', 17),
+  ('40000000-0000-4000-8000-000000000018', 'a0000000-0000-4000-8000-000000000005', 'Amazon AWS', 'Buy AWS Account — 10K RPM | 4.6 Support | 128 vCPU | Multi-Year Aged', '10k-rpm-128-vcpu-aged-account', 'Multi-year aged Amazon AWS account with 10K RPM, 128 vCPU, and 4.6-rated support.', 850.00, 'active', false, 'Aged', 18),
+  ('40000000-0000-4000-8000-000000000019', 'a0000000-0000-4000-8000-000000000005', 'Amazon AWS', 'Buy AWS Account — 10K RPM | 4.6 Support | 256 vCPU | Multi-Year Aged', '10k-rpm-256-vcpu-aged-account', 'Multi-year aged Amazon AWS account with 10K RPM, 256 vCPU, and 4.6-rated support.', 900.00, 'active', true, 'Aged', 19)
+on conflict (id) do nothing;
+
+insert into product_variants (id, product_id, name, slug, price, compare_at_price, stock_status, is_default, sort_order) values
+  ('50000000-0000-4000-8000-000000000001', '40000000-0000-4000-8000-000000000001', '512 vCPU', '512-vcpu-account', 290.00, null, 'in_stock', true, 1),
+  ('50000000-0000-4000-8000-000000000002', '40000000-0000-4000-8000-000000000002', '256 vCPU', '256-vcpu-account', 180.00, null, 'in_stock', true, 1),
+  ('50000000-0000-4000-8000-000000000003', '40000000-0000-4000-8000-000000000003', '128 vCPU', '128-vcpu-account', 110.00, null, 'in_stock', true, 1),
+  ('50000000-0000-4000-8000-000000000004', '40000000-0000-4000-8000-000000000004', '64 vCPU', '64-vcpu-account', 70.00, null, 'in_stock', true, 1),
+  ('50000000-0000-4000-8000-000000000005', '40000000-0000-4000-8000-000000000005', '32 vCPU', '32-vcpu-account', 38.00, 420.00, 'in_stock', true, 1),
+  ('50000000-0000-4000-8000-000000000006', '40000000-0000-4000-8000-000000000006', '8 vCPU', '8-vcpu-account', 20.00, 890.00, 'in_stock', true, 1),
+  ('50000000-0000-4000-8000-000000000007', '40000000-0000-4000-8000-000000000007', 'Free Trial', 'free-trial-account', 15.00, null, 'in_stock', true, 1),
+  ('50000000-0000-4000-8000-000000000008', '40000000-0000-4000-8000-000000000008', '1,000 Credit', '1k-credit-account', 240.00, null, 'in_stock', true, 1),
+  ('50000000-0000-4000-8000-000000000009', '40000000-0000-4000-8000-000000000009', '5,000 Credit', '5k-credit-account', 1199.00, null, 'in_stock', true, 1),
+  ('50000000-0000-4000-8000-000000000010', '40000000-0000-4000-8000-000000000010', '10,000 Credit', '10k-credit-account', 2399.00, null, 'in_stock', true, 1),
+  ('50000000-0000-4000-8000-000000000011', '40000000-0000-4000-8000-000000000011', '25,000 Credit', '25k-credit-account', 4999.00, null, 'in_stock', true, 1),
+  ('50000000-0000-4000-8000-000000000012', '40000000-0000-4000-8000-000000000012', '50,000 Credit', '50k-credit-account', 7499.00, null, 'in_stock', true, 1),
+  ('50000000-0000-4000-8000-000000000013', '40000000-0000-4000-8000-000000000013', '100,000 Credit', '100k-credit-account', 12999.00, null, 'in_stock', true, 1),
+  ('50000000-0000-4000-8000-000000000014', '40000000-0000-4000-8000-000000000014', 'Standard', '10-rpm-32-vcpu-account', 70.00, null, 'in_stock', true, 1),
+  ('50000000-0000-4000-8000-000000000015', '40000000-0000-4000-8000-000000000015', 'Standard', '50-rpm-kiro-32-vcpu-account', 220.00, null, 'in_stock', true, 1),
+  ('50000000-0000-4000-8000-000000000016', '40000000-0000-4000-8000-000000000016', 'Standard', '10k-rpm-5-vcpu-aged-account', 220.00, null, 'in_stock', true, 1),
+  ('50000000-0000-4000-8000-000000000017', '40000000-0000-4000-8000-000000000017', 'Standard', '10k-rpm-96-vcpu-aged-account', 350.00, null, 'in_stock', true, 1),
+  ('50000000-0000-4000-8000-000000000018', '40000000-0000-4000-8000-000000000018', 'Standard', '10k-rpm-128-vcpu-aged-account', 850.00, null, 'in_stock', true, 1),
+  ('50000000-0000-4000-8000-000000000019', '40000000-0000-4000-8000-000000000019', 'Standard', '10k-rpm-256-vcpu-aged-account', 900.00, null, 'in_stock', true, 1)
+on conflict (id) do nothing;
+
+insert into product_specifications (product_id, label, value, sort_order) values
+  ('40000000-0000-4000-8000-000000000001', 'Compute', '512 vCPU', 1),
+  ('40000000-0000-4000-8000-000000000002', 'Compute', '256 vCPU', 1),
+  ('40000000-0000-4000-8000-000000000003', 'Compute', '128 vCPU', 1),
+  ('40000000-0000-4000-8000-000000000004', 'Compute', '64 vCPU', 1),
+  ('40000000-0000-4000-8000-000000000005', 'Compute', '32 vCPU', 1),
+  ('40000000-0000-4000-8000-000000000005', 'Price Range', '$38 – $420', 2),
+  ('40000000-0000-4000-8000-000000000006', 'Compute', '8 vCPU', 1),
+  ('40000000-0000-4000-8000-000000000006', 'Price Range', '$20 – $890', 2),
+  ('40000000-0000-4000-8000-000000000007', 'Access', 'Free Trial', 1),
+  ('40000000-0000-4000-8000-000000000008', 'Credit Amount', '1,000 Credit', 1),
+  ('40000000-0000-4000-8000-000000000009', 'Credit Amount', '5,000 Credit', 1),
+  ('40000000-0000-4000-8000-000000000010', 'Credit Amount', '10,000 Credit', 1),
+  ('40000000-0000-4000-8000-000000000011', 'Credit Amount', '25,000 Credit', 1),
+  ('40000000-0000-4000-8000-000000000012', 'Credit Amount', '50,000 Credit', 1),
+  ('40000000-0000-4000-8000-000000000013', 'Credit Amount', '100,000 Credit', 1),
+  ('40000000-0000-4000-8000-000000000014', 'Rate Limit', '10 RPM', 1),
+  ('40000000-0000-4000-8000-000000000014', 'Compute', '32 vCPU', 2),
+  ('40000000-0000-4000-8000-000000000014', 'Email', 'Gmail', 3),
+  ('40000000-0000-4000-8000-000000000014', 'Region', 'N. Virginia', 4),
+  ('40000000-0000-4000-8000-000000000014', 'Security', '2FA', 5),
+  ('40000000-0000-4000-8000-000000000014', 'Access', 'API', 6),
+  ('40000000-0000-4000-8000-000000000015', 'Rate Limit', '50 RPM', 1),
+  ('40000000-0000-4000-8000-000000000015', 'Status', 'Kiro Working', 2),
+  ('40000000-0000-4000-8000-000000000015', 'Compute', '32 vCPU', 3),
+  ('40000000-0000-4000-8000-000000000015', 'Email', 'Gmail', 4),
+  ('40000000-0000-4000-8000-000000000015', 'Security', '2FA', 5),
+  ('40000000-0000-4000-8000-000000000015', 'Access', 'API', 6),
+  ('40000000-0000-4000-8000-000000000016', 'Rate Limit', '10K RPM', 1),
+  ('40000000-0000-4000-8000-000000000016', 'Support', '4.6 Support', 2),
+  ('40000000-0000-4000-8000-000000000016', 'Compute', '5 vCPU', 3),
+  ('40000000-0000-4000-8000-000000000016', 'Account Age', 'Multi-Year Aged', 4),
+  ('40000000-0000-4000-8000-000000000017', 'Rate Limit', '10K RPM', 1),
+  ('40000000-0000-4000-8000-000000000017', 'Support', '4.6 Support', 2),
+  ('40000000-0000-4000-8000-000000000017', 'Compute', '96 vCPU', 3),
+  ('40000000-0000-4000-8000-000000000017', 'Account Age', 'Multi-Year Aged', 4),
+  ('40000000-0000-4000-8000-000000000018', 'Rate Limit', '10K RPM', 1),
+  ('40000000-0000-4000-8000-000000000018', 'Support', '4.6 Support', 2),
+  ('40000000-0000-4000-8000-000000000018', 'Compute', '128 vCPU', 3),
+  ('40000000-0000-4000-8000-000000000018', 'Account Age', 'Multi-Year Aged', 4),
+  ('40000000-0000-4000-8000-000000000019', 'Rate Limit', '10K RPM', 1),
+  ('40000000-0000-4000-8000-000000000019', 'Support', '4.6 Support', 2),
+  ('40000000-0000-4000-8000-000000000019', 'Compute', '256 vCPU', 3),
+  ('40000000-0000-4000-8000-000000000019', 'Account Age', 'Multi-Year Aged', 4);
 
 -- =========================================================
 -- Shared product features (applied to every seeded product)

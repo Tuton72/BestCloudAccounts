@@ -29,6 +29,7 @@ const CATEGORY_PARENT_CRUMB: Partial<Record<CategorySlug, Crumb>> = {
   "aws-accounts": { label: "AWS", href: "/aws" },
   "aws-ai-accounts": { label: "AWS", href: "/aws" },
   "aws-credit-accounts": { label: "AWS", href: "/aws" },
+  "buy-aws-accounts": { label: "Cloud Accounts", href: "/cloud-accounts" },
 };
 
 export async function ProductDetail({ categorySlug, slug }: ProductDetailProps) {

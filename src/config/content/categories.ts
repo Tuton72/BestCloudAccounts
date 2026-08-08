@@ -11,4 +11,5 @@ export const CATEGORY_PRESENTATION: Record<CategorySlug, CategoryPresentation> =
   "aws-accounts": { icon: "server", ctaLabel: "Browse AWS Accounts" },
   "aws-ai-accounts": { icon: "bot", ctaLabel: "Browse AWS AI Accounts" },
   "aws-credit-accounts": { icon: "coins", ctaLabel: "Browse AWS Credit Accounts" },
+  "buy-aws-accounts": { icon: "shopping-cart", ctaLabel: "Browse Amazon AWS" },
 };
