@@ -1,7 +1,6 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import { Container } from "@/components/ui/container";
@@ -55,12 +54,6 @@ export function Header() {
         </nav>
 
         <div className="hidden items-center gap-2 md:flex">
-          <Link
-            href="/contact"
-            className="rounded-full px-3.5 py-2 text-sm font-medium text-ink-secondary transition-colors hover:text-ink"
-          >
-            Support
-          </Link>
           <a
             href={siteConfig.links.telegram}
             target="_blank"
