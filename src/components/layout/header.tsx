@@ -8,6 +8,7 @@ import { Container } from "@/components/ui/container";
 import { Icon } from "@/components/ui/icon";
 import { MobileNav } from "@/components/layout/mobile-nav";
 import { NavDropdown } from "@/components/layout/nav-dropdown";
+import { Logo } from "@/components/shared/logo";
 import { MAIN_NAV } from "@/config/nav";
 import { siteConfig } from "@/config/site";
 import { cn } from "@/lib/utils";
@@ -41,14 +42,7 @@ export function Header() {
           scrolled ? "h-16" : "h-20",
         )}
       >
-        <Link href="/" className="flex items-center gap-2 text-lg font-semibold tracking-tight text-ink">
-          <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-gradient-to-br from-accent to-accent-cyan">
-            <Icon name="cloud" size={18} className="text-white" aria-hidden="true" />
-          </span>
-          <span>
-            Best<span className="text-gradient">Cloud</span>Accounts
-          </span>
-        </Link>
+        <Logo markSize={30} />
 
         <nav aria-label="Primary" className="hidden md:block">
           <ul className="flex items-center gap-1">

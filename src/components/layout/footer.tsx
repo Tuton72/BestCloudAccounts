@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { Container } from "@/components/ui/container";
 import { Icon } from "@/components/ui/icon";
+import { Logo } from "@/components/shared/logo";
 import { FOOTER_NAV } from "@/config/nav";
 import { siteConfig } from "@/config/site";
 
@@ -26,14 +27,7 @@ export function Footer() {
     <footer className="border-t border-border bg-canvas-secondary">
       <Container className="grid grid-cols-2 gap-10 py-14 sm:grid-cols-2 lg:grid-cols-6">
         <div className="col-span-2">
-          <Link href="/" className="flex items-center gap-2 text-lg font-semibold tracking-tight text-ink">
-            <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-gradient-to-br from-accent to-accent-cyan">
-              <Icon name="cloud" size={18} className="text-white" aria-hidden="true" />
-            </span>
-            <span>
-              Best<span className="text-gradient">Cloud</span>Accounts
-            </span>
-          </Link>
+          <Logo markSize={30} />
           <p className="mt-4 max-w-sm text-sm text-ink-muted">{siteConfig.description}</p>
           <div className="mt-5 flex items-center gap-3">
             <a
