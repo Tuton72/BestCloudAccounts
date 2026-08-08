@@ -14,3 +14,13 @@ export function formatPrice(value: number): string {
 export function formatPriceRange(min: number, max: number): string {
   return `${formatPrice(min)} – ${formatPrice(max)}`;
 }
+
+const numberFormatter = new Intl.NumberFormat("en-US", {
+  minimumFractionDigits: 0,
+  maximumFractionDigits: 0,
+});
+
+/** Formats a number with grouping only, no currency symbol, e.g. 1199 -> "1,199". */
+export function formatNumber(value: number): string {
+  return numberFormatter.format(value);
+}

@@ -37,8 +37,8 @@ export function OrderButton({
       className={cn(
         "inline-flex items-center justify-center gap-2 rounded-full font-medium transition-all duration-200 focus-visible:outline-2 focus-visible:outline-accent-cyan",
         variant === "solid"
-          ? "bg-accent text-white shadow-[0_0_0_1px_rgba(59,130,246,0.4)] hover:bg-accent/90 hover:shadow-[0_0_24px_-4px_rgba(59,130,246,0.6)]"
-          : "border border-border text-ink-secondary hover:border-border-strong hover:text-ink",
+          ? "bg-gradient-primary text-white shadow-[0_0_0_1px_rgba(16,185,129,0.35)] hover:brightness-110 hover:shadow-[0_0_28px_-6px_rgba(20,184,166,0.55)]"
+          : "border border-accent/20 text-ink-secondary hover:border-accent/45 hover:text-ink",
         size === "lg" ? "h-12 px-7 text-base" : "h-10 px-5 text-sm",
         className,
       )}

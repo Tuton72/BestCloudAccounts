@@ -1,23 +1,25 @@
 @import "tailwindcss";
 
 /*
- * BestCloudAccounts design tokens — premium dark cloud/SaaS aesthetic.
- * The site has a single (dark) theme by design; tokens are defined once
- * on :root rather than behind a light/dark switch.
+ * BestCloudAccounts design tokens — premium deep-forest cloud/SaaS aesthetic.
+ * Identity: Emerald + Teal + subtle Gold. The site has a single (dark)
+ * theme by design; tokens are defined once on :root rather than behind a
+ * light/dark switch.
  */
 :root {
   /* Backgrounds */
-  --canvas: #060a12;
-  --canvas-secondary: #0b1220;
-  --surface: #101827;
-  --surface-hover: #131e2f;
-  --border: #1e293b;
-  --border-strong: #29405c;
+  --canvas: #07110f;
+  --canvas-secondary: #0a1512;
+  --surface: #0c1916;
+  --surface-elevated: #101f1a;
+  --surface-hover: #12241f;
+  --border: #1b332b;
+  --border-strong: #26483c;
 
   /* Accents */
-  --accent: #3b82f6;
-  --accent-cyan: #06b6d4;
-  --accent-violet: #8b5cf6;
+  --accent: #10b981; /* emerald — primary */
+  --accent-cyan: #14b8a6; /* teal — secondary */
+  --accent-gold: #f59e0b; /* gold — premium/featured, used sparingly */
   --success: #10b981;
 
   /* Text */
@@ -25,20 +27,22 @@
   --ink-secondary: #cbd5e1;
   --ink-muted: #94a3b8;
 
-  --gradient-accent: linear-gradient(135deg, var(--accent), var(--accent-cyan), var(--accent-violet));
+  --gradient-accent: linear-gradient(135deg, var(--accent), var(--accent-cyan), var(--accent-gold));
+  --gradient-primary: linear-gradient(135deg, var(--accent), var(--accent-cyan));
 }
 
 @theme inline {
   --color-canvas: var(--canvas);
   --color-canvas-secondary: var(--canvas-secondary);
   --color-surface: var(--surface);
+  --color-surface-elevated: var(--surface-elevated);
   --color-surface-hover: var(--surface-hover);
   --color-border: var(--border);
   --color-border-strong: var(--border-strong);
 
   --color-accent: var(--accent);
   --color-accent-cyan: var(--accent-cyan);
-  --color-accent-violet: var(--accent-violet);
+  --color-accent-gold: var(--accent-gold);
   --color-success: var(--success);
 
   --color-ink: var(--ink);
@@ -83,7 +87,7 @@ body {
 
 ::selection {
   background: var(--accent);
-  color: var(--ink);
+  color: var(--canvas);
 }
 
 /* Visible, accessible focus states everywhere */
@@ -93,7 +97,7 @@ body {
   border-radius: 4px;
 }
 
-/* Gradient headline text */
+/* Gradient headline text — used sparingly, on selected words only */
 .text-gradient {
   background-image: var(--gradient-accent);
   background-clip: text;
@@ -101,9 +105,14 @@ body {
   color: transparent;
 }
 
+/* Solid emerald -> teal gradient for primary CTAs */
+.bg-gradient-primary {
+  background-image: var(--gradient-primary);
+}
+
 /* Subtle glow used sparingly on hero/CTA surfaces */
 .glow-accent {
-  box-shadow: 0 0 0 1px var(--border), 0 0 40px -12px rgba(59, 130, 246, 0.45);
+  box-shadow: 0 0 0 1px var(--border), 0 0 40px -12px rgba(16, 185, 129, 0.4);
 }
 
 @media (prefers-reduced-motion: reduce) {

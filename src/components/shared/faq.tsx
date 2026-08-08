@@ -29,7 +29,13 @@ export function Faq({ items, eyebrow = "FAQ", heading = "Frequently Asked Questi
           const panelId = `faq-panel-${index}`;
           const buttonId = `faq-button-${index}`;
           return (
-            <div key={item.question} className="overflow-hidden rounded-xl border border-border bg-surface">
+            <div
+              key={item.question}
+              className={cn(
+                "overflow-hidden rounded-xl border bg-surface transition-colors",
+                open ? "border-accent/35" : "border-border",
+              )}
+            >
               <h3>
                 <button
                   type="button"
@@ -43,7 +49,7 @@ export function Faq({ items, eyebrow = "FAQ", heading = "Frequently Asked Questi
                   <Icon
                     name="chevron-down"
                     size={18}
-                    className={cn("shrink-0 text-ink-muted transition-transform", open && "rotate-180")}
+                    className={cn("shrink-0 transition-transform", open ? "rotate-180 text-accent" : "text-ink-muted")}
                     aria-hidden="true"
                   />
                 </button>

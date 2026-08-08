@@ -1,4 +1,4 @@
-import { formatPrice, formatPriceRange } from "@/lib/format";
+import { formatNumber, formatPrice } from "@/lib/format";
 import { cn } from "@/lib/utils";
 
 interface ProductPriceProps {
@@ -16,18 +16,25 @@ interface ProductPriceProps {
 }
 
 export function ProductPrice({ price, compareAtPrice, isRange, size = "md", className }: ProductPriceProps) {
+  const numberSize = size === "lg" ? "text-3xl" : "text-xl";
+
   if (isRange && compareAtPrice) {
     return (
-      <span className={cn(size === "lg" ? "text-3xl" : "text-xl", "font-semibold text-ink", className)}>
-        {formatPriceRange(price, compareAtPrice)}
+      <span className={cn("font-semibold", numberSize, className)}>
+        <span className="text-accent">$</span>
+        <span className="text-ink">{formatNumber(price)}</span>
+        <span className="mx-1 text-ink-muted">–</span>
+        <span className="text-accent">$</span>
+        <span className="text-ink">{formatNumber(compareAtPrice)}</span>
       </span>
     );
   }
 
   return (
     <span className={cn("flex items-baseline gap-2", className)}>
-      <span className={cn(size === "lg" ? "text-3xl" : "text-xl", "font-semibold text-ink")}>
-        {formatPrice(price)}
+      <span className={cn("font-semibold", numberSize)}>
+        <span className="text-accent">$</span>
+        <span className="text-ink">{formatNumber(price)}</span>
       </span>
       {compareAtPrice && compareAtPrice > price ? (
         <span className="text-sm text-ink-muted line-through">{formatPrice(compareAtPrice)}</span>

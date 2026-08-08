@@ -27,7 +27,7 @@ export function Footer() {
       <Container className="grid grid-cols-2 gap-10 py-14 sm:grid-cols-2 lg:grid-cols-5">
         <div className="col-span-2">
           <Link href="/" className="flex items-center gap-2 text-lg font-semibold tracking-tight text-ink">
-            <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-gradient-to-br from-accent via-accent-cyan to-accent-violet">
+            <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-gradient-to-br from-accent to-accent-cyan">
               <Icon name="cloud" size={18} className="text-white" aria-hidden="true" />
             </span>
             <span>

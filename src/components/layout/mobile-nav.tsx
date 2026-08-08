@@ -36,7 +36,7 @@ export function MobileNav({ open, onClose }: MobileNavProps) {
                   aria-current={active ? "page" : undefined}
                   className={cn(
                     "block rounded-lg px-3 py-2.5 text-base font-medium transition-colors",
-                    active ? "bg-surface text-ink" : "text-ink-secondary hover:bg-surface hover:text-ink",
+                    active ? "bg-accent/10 text-accent" : "text-ink-secondary hover:bg-surface hover:text-ink",
                   )}
                 >
                   {item.label}

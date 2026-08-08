@@ -41,7 +41,7 @@ export function Header() {
         )}
       >
         <Link href="/" className="flex items-center gap-2 text-lg font-semibold tracking-tight text-ink">
-          <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-gradient-to-br from-accent via-accent-cyan to-accent-violet">
+          <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-gradient-to-br from-accent to-accent-cyan">
             <Icon name="cloud" size={18} className="text-white" aria-hidden="true" />
           </span>
           <span>
@@ -60,7 +60,7 @@ export function Header() {
                     aria-current={active ? "page" : undefined}
                     className={cn(
                       "rounded-full px-3.5 py-2 text-sm font-medium transition-colors",
-                      active ? "text-ink" : "text-ink-secondary hover:text-ink",
+                      active ? "bg-accent/10 text-accent" : "text-ink-secondary hover:text-ink",
                     )}
                   >
                     {item.label}

@@ -5,11 +5,12 @@ export function FinalCTA() {
   return (
     <section className="border-t border-border py-16 sm:py-20">
       <Container>
-        <div className="glow-accent relative overflow-hidden rounded-3xl border border-border bg-gradient-to-br from-surface via-surface to-canvas-secondary px-6 py-14 text-center sm:px-12">
-          <div
-            aria-hidden="true"
-            className="absolute inset-0 bg-[radial-gradient(50%_60%_at_50%_0%,rgba(139,92,246,0.15),transparent)]"
-          />
+        <div className="glow-accent relative overflow-hidden rounded-3xl border border-border bg-surface-elevated px-6 py-14 text-center sm:px-12">
+          <div aria-hidden="true" className="pointer-events-none absolute inset-0">
+            <div className="absolute inset-0 bg-[radial-gradient(55%_65%_at_15%_0%,rgba(16,185,129,0.16),transparent)]" />
+            <div className="absolute inset-0 bg-[radial-gradient(45%_55%_at_100%_100%,rgba(20,184,166,0.14),transparent)]" />
+            <div className="absolute inset-0 bg-[radial-gradient(20%_20%_at_50%_45%,rgba(245,158,11,0.05),transparent)]" />
+          </div>
           <div className="relative">
             <h2 className="text-2xl font-semibold tracking-tight text-ink sm:text-3xl">
               Ready to find the right AWS account?
@@ -23,7 +24,7 @@ export function FinalCTA() {
                 Browse AWS Products
               </Button>
               <Button href="/contact" variant="secondary" size="lg">
-                Talk to Support
+                Contact Support
               </Button>
             </div>
           </div>

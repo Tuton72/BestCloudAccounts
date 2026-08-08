@@ -17,9 +17,15 @@ export function HowItWorks() {
           {howItWorksContent.steps.map((step) => (
             <div key={step.step} className="relative rounded-2xl border border-border bg-surface p-6">
               <span className="text-xs font-semibold text-ink-muted">Step {step.step}</span>
-              <span className="mt-3 flex h-11 w-11 items-center justify-center rounded-xl bg-gradient-to-br from-accent/20 via-accent-cyan/20 to-accent-violet/20 text-accent-cyan">
+              <span className="mt-3 flex h-11 w-11 items-center justify-center rounded-xl border border-accent/20 bg-gradient-to-br from-accent/15 to-accent-cyan/15 text-accent">
                 <Icon name={step.icon as IconName} size={20} aria-hidden="true" />
               </span>
+              {step.step < howItWorksContent.steps.length ? (
+                <span
+                  aria-hidden="true"
+                  className="absolute -right-6 top-[3.25rem] hidden h-px w-6 bg-gradient-to-r from-accent/50 to-transparent lg:block"
+                />
+              ) : null}
               <h3 className="mt-4 text-base font-semibold text-ink">{step.title}</h3>
               <p className="mt-1.5 text-sm text-ink-muted">{step.description}</p>
             </div>
