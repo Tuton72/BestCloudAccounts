@@ -17,8 +17,12 @@ export interface CardItem {
   icon: IconName;
   title: string;
   body: string;
-  /** Optional supporting bullet list rendered below the card body. */
+  /** Optional additional paragraphs rendered after body (distinct paragraphs, not merged). */
+  paragraphs?: string[];
+  /** Optional supporting bullet list rendered below the card body/paragraphs. */
   checklist?: string[];
+  /** Optional closing paragraph rendered after the checklist. */
+  closing?: string;
 }
 
 export type SafetyStep = CardItem;
