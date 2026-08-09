@@ -36,6 +36,11 @@ export function ProductPurchasePanel({ product, category }: ProductPurchasePanel
   const stock = STOCK_LABEL[selectedVariant.stockStatus] ?? STOCK_LABEL.in_stock;
   const specEntries = Object.entries(selectedVariant.specifications);
   const href = productHref(product);
+  // Mirrors ProductCard's logic: reuse the product's own existing badge text
+  // for products explicitly marked as spanning multiple configurations,
+  // otherwise show the selected variant's real name — never invented.
+  const isMultiVariant = Boolean(product.badge?.toLowerCase().includes("multiple"));
+  const variantLabel = isMultiVariant ? product.badge : selectedVariant.name;
 
   return (
     <div className="rounded-2xl border border-border bg-surface-elevated p-6 sm:p-7 shadow-[0_0_0_1px_rgba(16,185,129,0.06)]">
@@ -51,6 +56,15 @@ export function ProductPurchasePanel({ product, category }: ProductPurchasePanel
         <Icon name="check-circle" size={16} aria-hidden="true" />
         {stock.label}
       </div>
+
+      {variantLabel ? (
+        <div className="mt-5 rounded-lg border border-accent/20 bg-accent/5 px-3.5 py-2.5">
+          <span className="block text-[11px] font-semibold uppercase tracking-wide text-accent-cyan">
+            Account Variant
+          </span>
+          <span className="mt-0.5 block break-words text-sm font-medium text-ink">{variantLabel}</span>
+        </div>
+      ) : null}
 
       <div className="mt-5">
         <ProductPrice

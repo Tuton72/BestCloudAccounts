@@ -47,16 +47,18 @@ export async function ProductDetail({ categorySlug, slug }: ProductDetailProps) 
     <div>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
 
-      <Container className="py-8 sm:py-10">
-        <Breadcrumbs
-          items={[
-            { label: "Home", href: "/" },
-            ...(CATEGORY_PARENT_CRUMB[category.slug] ? [CATEGORY_PARENT_CRUMB[category.slug]!] : []),
-            { label: category.name, href: `/${category.slug}` },
-            { label: product.name },
-          ]}
-        />
-      </Container>
+      <div className="border-b border-border bg-canvas-secondary">
+        <Container className="py-8 sm:py-10">
+          <Breadcrumbs
+            items={[
+              { label: "Home", href: "/" },
+              ...(CATEGORY_PARENT_CRUMB[category.slug] ? [CATEGORY_PARENT_CRUMB[category.slug]!] : []),
+              { label: category.name, href: `/${category.slug}` },
+              { label: product.name },
+            ]}
+          />
+        </Container>
+      </div>
 
       <Container className="grid grid-cols-1 gap-8 pb-16 lg:grid-cols-2 lg:gap-10">
         <ProductHero />
