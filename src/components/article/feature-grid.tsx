@@ -30,6 +30,16 @@ export function FeatureGrid({ heading, intro, items, columns = 3 }: FeatureGridP
             </span>
             <h3 className="mt-4 text-base font-semibold text-ink">{item.title}</h3>
             <p className="mt-2 text-sm leading-relaxed text-ink-muted">{item.body}</p>
+            {item.checklist ? (
+              <ul className="mt-3 flex flex-col gap-1.5">
+                {item.checklist.map((point) => (
+                  <li key={point} className="flex items-start gap-2 text-sm text-ink-secondary">
+                    <Icon name="check" size={15} className="mt-0.5 shrink-0 text-success" aria-hidden="true" />
+                    {point}
+                  </li>
+                ))}
+              </ul>
+            ) : null}
           </div>
         ))}
       </div>

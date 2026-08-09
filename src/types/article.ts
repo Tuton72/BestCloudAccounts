@@ -17,11 +17,11 @@ export interface CardItem {
   icon: IconName;
   title: string;
   body: string;
-}
-
-export interface SafetyStep extends CardItem {
+  /** Optional supporting bullet list rendered below the card body. */
   checklist?: string[];
 }
+
+export type SafetyStep = CardItem;
 
 export interface ArticleFaqItem {
   question: string;
