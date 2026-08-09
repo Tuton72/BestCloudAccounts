@@ -3,8 +3,16 @@ import { Container } from "@/components/ui/container";
 import { Icon } from "@/components/ui/icon";
 import { siteConfig } from "@/config/site";
 
+interface ContactPromptProps {
+  heading?: string;
+  description?: string;
+}
+
 /** Premium conversion card pointing to the site's real contact channels — no invented contact info. */
-export function ContactPrompt() {
+export function ContactPrompt({
+  heading = "Need Help Choosing an AWS Account?",
+  description = "Have questions about an AWS package, vCPU configuration, credit amount, or product specifications? Contact our team for assistance.",
+}: ContactPromptProps) {
   return (
     <section className="border-y border-border py-14 sm:py-16">
       <Container>
@@ -13,13 +21,8 @@ export function ContactPrompt() {
             <Icon name="headset" size={22} aria-hidden="true" />
           </span>
           <div>
-            <h2 className="text-2xl font-semibold tracking-tight text-ink sm:text-3xl">
-              Need Help Choosing an AWS Account?
-            </h2>
-            <p className="mx-auto mt-3 max-w-xl text-ink-muted">
-              Have questions about an AWS package, vCPU configuration, credit amount, or product specifications?
-              Contact our team for assistance.
-            </p>
+            <h2 className="text-2xl font-semibold tracking-tight text-ink sm:text-3xl">{heading}</h2>
+            <p className="mx-auto mt-3 max-w-xl text-ink-muted">{description}</p>
           </div>
           <div className="flex flex-col gap-3 sm:flex-row">
             <Button href="/contact" size="lg">

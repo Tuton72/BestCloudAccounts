@@ -1,5 +1,5 @@
 import { Icon } from "@/components/ui/icon";
-import type { CardItem } from "@/config/content/buy-aws-article";
+import type { CardItem } from "@/types/article";
 
 interface FeatureGridProps {
   heading: string;

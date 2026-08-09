@@ -1,4 +1,4 @@
-import type { IconName } from "@/components/ui/icon";
+import type { ArticleFaqItem, CardItem, ProseSection, SafetyStep } from "@/types/article";
 
 /**
  * Full long-form article content for /buy-aws-accounts, shown below the
@@ -6,18 +6,6 @@ import type { IconName } from "@/components/ui/icon";
  * full; only its presentation (headings/paragraphs/cards) is structured
  * here for the UI layer to render. Do not shorten or summarize.
  */
-
-export interface ProseSection {
-  id: string;
-  heading: string;
-  paragraphs: string[];
-}
-
-export interface CardItem {
-  icon: IconName;
-  title: string;
-  body: string;
-}
 
 export const articleIntro = {
   eyebrow: "AWS Account Guide",
@@ -176,10 +164,6 @@ export const whoNeedsCards: { heading: string; intro: string; items: CardItem[] 
   ],
 };
 
-export interface SafetyStep extends CardItem {
-  checklist?: string[];
-}
-
 export const safetySteps: { heading: string; intro: string; items: SafetyStep[] } = {
   heading: "How to Safely Buy AWS Account Online?",
   intro: "If you've decided to purchase an account, here are some practical tips to ensure you don't get scammed:",
@@ -285,11 +269,6 @@ export const takeActionSection = {
   closingTagline:
     "So go ahead – take the leap. Empower your cloud journey today with Best Cloud Accounts. Because when you have the right infrastructure, there's no limit to what you can achieve.",
 };
-
-export interface ArticleFaqItem {
-  question: string;
-  answer: string;
-}
 
 export const articleFaq: ArticleFaqItem[] = [
   {

@@ -1,3 +1,4 @@
+import { ArticleIntroCard } from "@/components/article/article-intro-card";
 import { ArticleProse } from "@/components/article/article-prose";
 import { FeatureGrid } from "@/components/article/feature-grid";
 import { PointsGrid } from "@/components/article/points-grid";
@@ -36,19 +37,7 @@ export function AmazonAwsArticle() {
     <div className="py-16 sm:py-20">
       <Container className="flex flex-col gap-16 sm:gap-20">
         {/* A. Article introduction — large premium content card */}
-        <div className="mx-auto w-full max-w-[1000px] rounded-3xl border border-accent/20 bg-surface-elevated p-6 sm:p-10">
-          <span className="text-xs font-semibold uppercase tracking-widest text-accent-cyan">
-            {articleIntro.eyebrow}
-          </span>
-          <h2 className="mt-3 text-2xl font-semibold leading-tight tracking-tight text-ink sm:text-3xl">
-            {articleIntro.title}
-          </h2>
-          {articleIntro.paragraphs.map((p, i) => (
-            <p key={i} className="mt-4 leading-relaxed text-ink-secondary">
-              {p}
-            </p>
-          ))}
-        </div>
+        <ArticleIntroCard eyebrow={articleIntro.eyebrow} title={articleIntro.title} paragraphs={articleIntro.paragraphs} />
 
         {/* B. Standard informational sections */}
         {articleSections.map((section) => (
