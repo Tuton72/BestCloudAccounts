@@ -5,6 +5,8 @@ interface StepItem {
   title: string;
   body?: string;
   checklist?: string[];
+  /** Optional closing paragraph rendered after the checklist. */
+  closing?: string;
 }
 
 interface StepListProps {
@@ -49,6 +51,7 @@ export function StepList({ heading, intro, items, closing }: StepListProps) {
                   ))}
                 </ul>
               ) : null}
+              {item.closing ? <p className="mt-3 text-sm leading-relaxed text-ink-muted">{item.closing}</p> : null}
             </div>
           </li>
         ))}
