@@ -14,6 +14,12 @@ interface ProductCardProps {
 export function ProductCard({ product, category }: ProductCardProps) {
   const href = productHref(product);
   const isRange = Boolean(product.compareAtPrice);
+  const defaultVariant = product.variants.find((v) => v.isDefault) ?? product.variants[0];
+  // A product's own badge already says "Multiple Variants"/"Multiple Configurations"
+  // for the handful of products with more than one real configuration — reuse that
+  // existing, unmodified text rather than the single placeholder variant's name.
+  const isMultiVariant = Boolean(product.badge?.toLowerCase().includes("multiple"));
+  const variantLabel = isMultiVariant ? product.badge : defaultVariant?.name;
 
   return (
     <div className="group relative flex flex-col rounded-2xl border border-border bg-surface p-5 transition-all duration-200 hover:-translate-y-0.5 hover:border-accent/40 hover:bg-surface-hover">
@@ -42,8 +48,13 @@ export function ProductCard({ product, category }: ProductCardProps) {
         </ul>
       ) : null}
 
-      {product.variants.length > 1 ? (
-        <p className="mt-3 text-xs text-ink-muted">{product.variants.length} configurations available</p>
+      {variantLabel ? (
+        <div className="mt-3 rounded-lg border border-accent/20 bg-accent/5 px-3 py-2">
+          <span className="block text-[11px] font-semibold uppercase tracking-wide text-accent-cyan">
+            Account Variant
+          </span>
+          <span className="mt-0.5 block break-words text-sm font-medium text-ink">{variantLabel}</span>
+        </div>
       ) : null}
 
       <div className="mt-auto pt-5">

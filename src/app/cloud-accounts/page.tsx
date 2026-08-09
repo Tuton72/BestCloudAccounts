@@ -40,6 +40,9 @@ export default async function CloudAccountsPage() {
             Accounts across major cloud providers beyond AWS, in the same marketplace — pricing shown up front
             on every product.
           </p>
+          <p className="mt-3 text-sm text-ink-muted">
+            {products.length} {products.length === 1 ? "product" : "products"}
+          </p>
         </Container>
       </div>
 
