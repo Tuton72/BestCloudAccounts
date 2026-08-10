@@ -27,7 +27,15 @@ export default function Aws32VcpuAccountPage() {
   return (
     <div>
       {/* Existing AWS 32 vCPU product/detail section — unchanged, same as every other AWS Accounts product. */}
-      <ProductDetail categorySlug={CATEGORY_SLUG} slug={SLUG} />
+      <ProductDetail
+        categorySlug={CATEGORY_SLUG}
+        slug={SLUG}
+        topIntro={{
+          title: "Buy AWS 32 vCPU Account – Choose the Right Configuration",
+          paragraph:
+            "Explore AWS 32 vCPU accounts with different configuration tiers for development, applications, and mid-size compute workloads. Compare the available variants and prices below to find the account that fits your needs.",
+        }}
+      />
 
       <ContactPrompt
         heading="Need Help Choosing an AWS 32 vCPU Account?"

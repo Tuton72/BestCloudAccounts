@@ -30,7 +30,15 @@ export default function IbmCloudAccountPage() {
   return (
     <div>
       {/* Existing IBM Cloud hero + product section — unchanged, same as every other Cloud Account product. */}
-      <ProductDetail categorySlug={CATEGORY_SLUG} slug={SLUG} />
+      <ProductDetail
+        categorySlug={CATEGORY_SLUG}
+        slug={SLUG}
+        topIntro={{
+          title: "Buy IBM Cloud Account – Choose the Right Cloud Plan",
+          paragraph:
+            "Explore IBM Cloud accounts built for cloud credits, Lite plans, AI services, virtual servers, Kubernetes, and database workloads. Compare the price and details below to find the IBM Cloud account that fits your needs.",
+        }}
+      />
 
       <ContactPrompt
         heading="Need Help Choosing an IBM Cloud Account?"

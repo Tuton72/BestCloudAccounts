@@ -27,7 +27,15 @@ export default function Aws256VcpuAccountPage() {
   return (
     <div>
       {/* Existing AWS 256vCPU product/detail section — unchanged, same as every other AWS Accounts product. */}
-      <ProductDetail categorySlug={CATEGORY_SLUG} slug={SLUG} />
+      <ProductDetail
+        categorySlug={CATEGORY_SLUG}
+        slug={SLUG}
+        topIntro={{
+          title: "Buy AWS 256 vCPU Account – Choose the Right Configuration",
+          paragraph:
+            "Explore the AWS 256 vCPU account, built for heavy compute workloads that need significant processing power. Compare the price and details below to see if this account fits your needs.",
+        }}
+      />
 
       <ContactPrompt
         heading="Need Help Choosing an AWS 256vCPU Account?"

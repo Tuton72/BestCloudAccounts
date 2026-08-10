@@ -27,7 +27,15 @@ export default function Aws128VcpuAccountPage() {
   return (
     <div>
       {/* Existing AWS 128 vCPU product/detail section — unchanged, same as every other AWS Accounts product. */}
-      <ProductDetail categorySlug={CATEGORY_SLUG} slug={SLUG} />
+      <ProductDetail
+        categorySlug={CATEGORY_SLUG}
+        slug={SLUG}
+        topIntro={{
+          title: "Buy AWS 128 vCPU Account – Choose the Right Configuration",
+          paragraph:
+            "Explore the AWS 128 vCPU account, built for scaling workloads that need more compute headroom. Compare the price and details below to see if this account fits your needs.",
+        }}
+      />
 
       <ContactPrompt
         heading="Need Help Choosing an AWS 128 vCPU Account?"

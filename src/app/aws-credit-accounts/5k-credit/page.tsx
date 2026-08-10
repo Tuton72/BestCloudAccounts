@@ -27,7 +27,15 @@ export default function Aws5kCreditAccountPage() {
   return (
     <div>
       {/* Existing AWS 5k Credit product/detail section — unchanged, same as every other AWS Credit Accounts product. */}
-      <ProductDetail categorySlug={CATEGORY_SLUG} slug={SLUG} />
+      <ProductDetail
+        categorySlug={CATEGORY_SLUG}
+        slug={SLUG}
+        topIntro={{
+          title: "Buy AWS 5K Credit Account – Choose the Right Credit Plan",
+          paragraph:
+            "Explore the AWS 5K Credit account, pre-loaded with 5,000 of promotional credit for development, testing, and cloud infrastructure workloads. Compare the price and details below to see if this account fits your needs.",
+        }}
+      />
 
       <ContactPrompt
         heading="Need Help Choosing an AWS 5K Credit Account?"

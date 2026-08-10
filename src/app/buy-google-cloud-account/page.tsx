@@ -30,7 +30,15 @@ export default function GoogleCloudAccountPage() {
   return (
     <div>
       {/* Existing Google Cloud hero + product section — unchanged, same as every other Cloud Account product. */}
-      <ProductDetail categorySlug={CATEGORY_SLUG} slug={SLUG} />
+      <ProductDetail
+        categorySlug={CATEGORY_SLUG}
+        slug={SLUG}
+        topIntro={{
+          title: "Buy Google Cloud Account – Choose the Right Cloud Configuration",
+          paragraph:
+            "Explore Google Cloud accounts with different cloud credit amounts, project access levels, and resource limits for development and business workloads. Compare the available variants and prices below to find the Google Cloud account that fits your needs.",
+        }}
+      />
 
       <ContactPrompt
         heading="Need Help Choosing a Google Cloud Account?"

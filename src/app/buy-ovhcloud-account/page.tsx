@@ -30,7 +30,15 @@ export default function OvhcloudAccountPage() {
   return (
     <div>
       {/* Existing OVHcloud hero + product section — unchanged, same as every other Cloud Account product. */}
-      <ProductDetail categorySlug={CATEGORY_SLUG} slug={SLUG} />
+      <ProductDetail
+        categorySlug={CATEGORY_SLUG}
+        slug={SLUG}
+        topIntro={{
+          title: "Buy OVHcloud Account – Choose the Right Cloud Plan",
+          paragraph:
+            "Explore OVHcloud accounts across Public Cloud, Private Cloud, VPS, and Dedicated Server configurations for development, hosting, and business workloads. Compare the available variants and prices below to find the OVHcloud account that fits your needs.",
+        }}
+      />
 
       <ContactPrompt
         heading="Need Help Choosing an OVHcloud Account?"

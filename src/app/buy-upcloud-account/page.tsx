@@ -30,7 +30,15 @@ export default function UpCloudAccountPage() {
   return (
     <div>
       {/* Existing UpCloud hero + product section — unchanged, same as every other Cloud Account product. */}
-      <ProductDetail categorySlug={CATEGORY_SLUG} slug={SLUG} />
+      <ProductDetail
+        categorySlug={CATEGORY_SLUG}
+        slug={SLUG}
+        topIntro={{
+          title: "Buy UpCloud Account – Choose the Right Server Plan",
+          paragraph:
+            "Explore UpCloud accounts built for MaxIOPS storage, VPS, GPU servers, and Kubernetes workloads across multiple data centers. Compare the price and details below to find the UpCloud account that fits your needs.",
+        }}
+      />
 
       <ContactPrompt
         heading="Need Help Choosing an UpCloud Account?"

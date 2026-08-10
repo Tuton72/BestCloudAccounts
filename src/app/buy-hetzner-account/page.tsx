@@ -30,7 +30,15 @@ export default function HetznerAccountPage() {
   return (
     <div>
       {/* Existing Hetzner hero + product section — unchanged, same as every other Cloud Account product. */}
-      <ProductDetail categorySlug={CATEGORY_SLUG} slug={SLUG} showVariantPricingGrid />
+      <ProductDetail
+        categorySlug={CATEGORY_SLUG}
+        slug={SLUG}
+        topIntro={{
+          title: "Buy Hetzner Account – Choose the Right Server Configuration",
+          paragraph:
+            "Explore Hetzner accounts with different server limits and port configurations for development, hosting, and infrastructure workloads. Compare the available variants and prices below to find the Hetzner account that fits your needs.",
+        }}
+      />
 
       <ContactPrompt
         heading="Need Help Choosing a Hetzner Account?"

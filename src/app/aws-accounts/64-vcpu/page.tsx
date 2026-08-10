@@ -27,7 +27,15 @@ export default function Aws64VcpuAccountPage() {
   return (
     <div>
       {/* Existing AWS 64 vCPU product/detail section — unchanged, same as every other AWS Accounts product. */}
-      <ProductDetail categorySlug={CATEGORY_SLUG} slug={SLUG} />
+      <ProductDetail
+        categorySlug={CATEGORY_SLUG}
+        slug={SLUG}
+        topIntro={{
+          title: "Buy AWS 64 vCPU Account – Choose the Right Configuration",
+          paragraph:
+            "Explore the AWS 64 vCPU account, built for balanced, general-purpose compute workloads. Compare the price and details below to see if this account fits your needs.",
+        }}
+      />
 
       <ContactPrompt
         heading="Need Help Choosing an AWS 64 vCPU Account?"

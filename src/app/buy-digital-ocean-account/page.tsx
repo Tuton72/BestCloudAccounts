@@ -30,7 +30,15 @@ export default function DigitalOceanAccountPage() {
   return (
     <div>
       {/* Existing DigitalOcean hero + product section — unchanged, same as every other Cloud Account product. */}
-      <ProductDetail categorySlug={CATEGORY_SLUG} slug={SLUG} showVariantPricingGrid />
+      <ProductDetail
+        categorySlug={CATEGORY_SLUG}
+        slug={SLUG}
+        topIntro={{
+          title: "Buy DigitalOcean Account – Choose the Right Cloud Account",
+          paragraph:
+            "Explore DigitalOcean accounts with different Droplet limits and port configurations for development, hosting, and infrastructure workloads. Compare the available variants and prices below to find the DigitalOcean account that fits your needs.",
+        }}
+      />
 
       <ContactPrompt
         heading="Need Help Choosing a DigitalOcean Account?"

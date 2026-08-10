@@ -13,6 +13,7 @@ import { Breadcrumbs } from "@/components/ui/breadcrumbs";
 import { Container } from "@/components/ui/container";
 import { getCategoryBySlug } from "@/lib/data/categories";
 import { getProductBySlug, getRelatedProducts } from "@/lib/data/products";
+import { buildDefaultTopIntro } from "@/lib/product-intro";
 import { buildProductJsonLd } from "@/lib/seo";
 import { cn } from "@/lib/utils";
 import type { Crumb } from "@/components/ui/breadcrumbs";
@@ -29,11 +30,13 @@ interface ProductDetailProps {
    */
   showVariantPricingGrid?: boolean;
   /**
-   * Optional page-specific SEO intro rendered between the breadcrumb and
-   * the pricing area, inside the same header strip (matching the heading
-   * style already used on category listing pages). When set, it becomes
-   * the page's H1 and the purchase panel's own heading is demoted to h2
-   * so the page keeps exactly one H1.
+   * Page-specific SEO intro (H1 + caption) rendered between the
+   * breadcrumb and the pricing area — the site-wide design standard
+   * established on /buy-azure-accounts. Pages that want bespoke wording
+   * pass it explicitly; every page that doesn't falls back to
+   * `buildDefaultTopIntro`, so every product page gets one automatically.
+   * This is always the page's one H1 — the purchase panel's own heading
+   * is always demoted to h2.
    */
   topIntro?: { title: string; paragraph: string };
   /** Hides the standalone "Specifications" section below the pricing area. */
@@ -49,17 +52,17 @@ interface ProductDetailProps {
   /** Hides the "Related ..." section here — for pages that render it themselves further down the page instead. */
   hideRelatedProducts?: boolean;
   /**
-   * Subtle premium refinement of the pricing card: a more prominent
-   * accent-colored Account Variant value, a larger accent-colored price,
-   * and a matching accent on the selected variant card. Off by default —
-   * every page keeps its current pricing-card styling unless explicitly
-   * opted in.
+   * Premium pricing-card treatment: a more prominent accent-colored
+   * Account Variant value, a larger accent-colored price, and a matching
+   * accent on the selected variant card. On by default — this is the
+   * site-wide pricing-card design standard; pass `false` to opt a page
+   * out.
    */
   highlightVariant?: boolean;
   /**
    * Shows the generic, reusable customer-contact CTA (no product/provider
-   * name) directly below the product image. Off by default — every page
-   * keeps its current left-column layout unless explicitly opted in.
+   * name) directly below the product image. On by default — every
+   * product page shows it; pass `false` to opt a page out.
    */
   showChatCta?: boolean;
 }
@@ -87,8 +90,8 @@ export async function ProductDetail({
   hideFaq,
   hideFinalCta,
   hideRelatedProducts,
-  highlightVariant,
-  showChatCta,
+  highlightVariant = true,
+  showChatCta = true,
 }: ProductDetailProps) {
   const category = await getCategoryBySlug(categorySlug);
   const product = category ? await getProductBySlug(categorySlug, slug) : null;
@@ -99,6 +102,7 @@ export async function ProductDetail({
 
   const related = hideRelatedProducts ? [] : await getRelatedProducts(product);
   const jsonLd = buildProductJsonLd(product, category);
+  const intro = topIntro ?? buildDefaultTopIntro(product, category);
 
   const showOverview = Boolean(product.description);
   const showSpecifications = !hideSpecifications && product.specifications.length > 0;
@@ -119,12 +123,8 @@ export async function ProductDetail({
               { label: product.name },
             ]}
           />
-          {topIntro ? (
-            <>
-              <h1 className="mt-4 text-3xl font-semibold tracking-tight text-ink sm:text-4xl">{topIntro.title}</h1>
-              <p className="mt-2 max-w-2xl text-ink-muted">{topIntro.paragraph}</p>
-            </>
-          ) : null}
+          <h1 className="mt-4 text-3xl font-semibold tracking-tight text-ink sm:text-4xl">{intro.title}</h1>
+          <p className="mt-2 max-w-2xl text-ink-muted">{intro.paragraph}</p>
         </Container>
       </div>
 
@@ -151,7 +151,7 @@ export async function ProductDetail({
         <ProductPurchasePanel
           product={product}
           category={category}
-          headingLevel={topIntro ? "h2" : "h1"}
+          headingLevel="h2"
           highlightVariant={highlightVariant}
         />
       </Container>

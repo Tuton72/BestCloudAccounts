@@ -27,7 +27,15 @@ export default function AwsFreeTrialAccountPage() {
   return (
     <div>
       {/* Existing AWS Free Trial product/detail section — unchanged, same as every other AWS Accounts product. */}
-      <ProductDetail categorySlug={CATEGORY_SLUG} slug={SLUG} />
+      <ProductDetail
+        categorySlug={CATEGORY_SLUG}
+        slug={SLUG}
+        topIntro={{
+          title: "Buy AWS Free Trial Account – Get Started with AWS",
+          paragraph:
+            "Explore the AWS Free Trial account, a low-cost way to evaluate AWS services before committing to a larger configuration. Compare the price and details below to see if this account fits your needs.",
+        }}
+      />
 
       <ContactPrompt
         heading="Need Help Choosing an AWS Free Trial Account?"

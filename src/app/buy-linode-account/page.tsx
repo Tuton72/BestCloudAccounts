@@ -30,7 +30,15 @@ export default function LinodeAccountPage() {
   return (
     <div>
       {/* Existing Linode hero + product section — unchanged, same as every other Cloud Account product. */}
-      <ProductDetail categorySlug={CATEGORY_SLUG} slug={SLUG} />
+      <ProductDetail
+        categorySlug={CATEGORY_SLUG}
+        slug={SLUG}
+        topIntro={{
+          title: "Buy Linode Account – Choose the Right VPS Plan",
+          paragraph:
+            "Explore Linode accounts with different VPS plans, CPU options, storage, and network transfer configurations across multiple data centers. Compare the available variants and prices below to find the Linode account that fits your needs.",
+        }}
+      />
 
       <ContactPrompt
         heading="Need Help Choosing a Linode Account?"

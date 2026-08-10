@@ -30,7 +30,15 @@ export default function VultrAccountPage() {
   return (
     <div>
       {/* Existing Vultr hero + product section — unchanged, same as every other Cloud Account product. */}
-      <ProductDetail categorySlug={CATEGORY_SLUG} slug={SLUG} />
+      <ProductDetail
+        categorySlug={CATEGORY_SLUG}
+        slug={SLUG}
+        topIntro={{
+          title: "Buy Vultr Account – Choose the Right Cloud Account",
+          paragraph:
+            "Explore Vultr accounts with different cloud credit amounts and VPS instance configurations for development, hosting, and business workloads. Compare the available variants and prices below to find the Vultr account that fits your needs.",
+        }}
+      />
 
       <ContactPrompt
         heading="Need Help Choosing a Vultr Account?"

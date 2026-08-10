@@ -30,7 +30,15 @@ export default function VerifiedICloudAccountPage() {
   return (
     <div>
       {/* Existing Verified iCloud hero + product section — unchanged, same as every other Cloud Account product. */}
-      <ProductDetail categorySlug={CATEGORY_SLUG} slug={SLUG} />
+      <ProductDetail
+        categorySlug={CATEGORY_SLUG}
+        slug={SLUG}
+        topIntro={{
+          title: "Buy Verified iCloud Account – Choose the Right Storage Plan",
+          paragraph:
+            "Explore verified iCloud accounts with different regions, storage capacities, and Apple service access. Compare the available variants and prices below to find the iCloud account that fits your needs.",
+        }}
+      />
 
       <ContactPrompt
         heading="Need Help Choosing a Verified iCloud Account?"

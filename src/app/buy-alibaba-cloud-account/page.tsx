@@ -30,7 +30,15 @@ export default function AlibabaCloudAccountPage() {
   return (
     <div>
       {/* Existing Alibaba Cloud hero + product section — unchanged, same as every other Cloud Account product. */}
-      <ProductDetail categorySlug={CATEGORY_SLUG} slug={SLUG} />
+      <ProductDetail
+        categorySlug={CATEGORY_SLUG}
+        slug={SLUG}
+        topIntro={{
+          title: "Buy Alibaba Cloud Account – Choose the Right Cloud Plan",
+          paragraph:
+            "Explore Alibaba Cloud accounts with free trial quotas, ECS instances, cloud credits, and AI workload support. Compare the available variants and prices below to find the Alibaba Cloud account that fits your needs.",
+        }}
+      />
 
       <ContactPrompt
         heading="Need Help Choosing an Alibaba Cloud Account?"

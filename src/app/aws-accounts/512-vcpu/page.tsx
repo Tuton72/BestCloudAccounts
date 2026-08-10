@@ -27,7 +27,15 @@ export default function Aws512VcpuAccountPage() {
   return (
     <div>
       {/* Existing AWS 512vCPU product/detail section — unchanged, same as every other AWS Accounts product. */}
-      <ProductDetail categorySlug={CATEGORY_SLUG} slug={SLUG} />
+      <ProductDetail
+        categorySlug={CATEGORY_SLUG}
+        slug={SLUG}
+        topIntro={{
+          title: "Buy AWS 512 vCPU Account – Choose the Right Configuration",
+          paragraph:
+            "Explore the AWS 512 vCPU account, built for large, demanding compute workloads that need maximum capacity. Compare the price and details below to see if this account fits your needs.",
+        }}
+      />
 
       <ContactPrompt
         heading="Need Help Choosing an AWS 512vCPU Account?"

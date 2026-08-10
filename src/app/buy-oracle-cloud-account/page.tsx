@@ -30,7 +30,15 @@ export default function OracleCloudAccountPage() {
   return (
     <div>
       {/* Existing Oracle Cloud hero + product section — unchanged, same as every other Cloud Account product. */}
-      <ProductDetail categorySlug={CATEGORY_SLUG} slug={SLUG} />
+      <ProductDetail
+        categorySlug={CATEGORY_SLUG}
+        slug={SLUG}
+        topIntro={{
+          title: "Buy Oracle Cloud Account – Choose the Right Cloud Plan",
+          paragraph:
+            "Explore Oracle Cloud accounts with Always Free resources, Universal Credits, compute, and database configurations across multiple regions. Compare the available variants and prices below to find the Oracle Cloud account that fits your needs.",
+        }}
+      />
 
       <ContactPrompt
         heading="Need Help Choosing an Oracle Cloud Account?"

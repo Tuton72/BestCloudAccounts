@@ -30,7 +30,15 @@ export default function KamateraAccountPage() {
   return (
     <div>
       {/* Existing Kamatera hero + product section — unchanged, same as every other Cloud Account product. */}
-      <ProductDetail categorySlug={CATEGORY_SLUG} slug={SLUG} />
+      <ProductDetail
+        categorySlug={CATEGORY_SLUG}
+        slug={SLUG}
+        topIntro={{
+          title: "Buy Kamatera Account – Choose the Right Server Configuration",
+          paragraph:
+            "Explore Kamatera accounts with different free trial and VPS server configurations for development and cloud infrastructure workloads. Compare the available variants and prices below to find the Kamatera account that fits your needs.",
+        }}
+      />
 
       <ContactPrompt
         heading="Need Help Choosing a Kamatera Account?"
