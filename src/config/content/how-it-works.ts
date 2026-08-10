@@ -6,31 +6,31 @@ export interface HowItWorksStep {
 }
 
 export const howItWorksContent = {
-  heading: "How It Works",
-  subheading: "From browsing to delivery in four straightforward steps.",
+  heading: "Four Steps to Your Cloud Account",
+  subheading: undefined as string | undefined,
   steps: [
     {
       step: 1,
-      title: "Choose Product",
-      description: "Browse AWS Accounts, AWS AI Accounts, or AWS Credit Accounts and pick what fits your workload.",
+      title: "Browse Products",
+      description: "Explore the available categories: Cloud Accounts, AWS Accounts, AWS AI Accounts, AWS Credit Accounts, and Amazon AWS.",
       icon: "search",
     },
     {
       step: 2,
-      title: "Select Variant",
-      description: "Compare available configurations and pricing, then select the exact variant you need.",
+      title: "Review Specifications",
+      description: "Examine the details of each account, including vCPU, configuration, and available compute resources.",
       icon: "list-checks",
     },
     {
       step: 3,
-      title: "Place Order",
-      description: "Confirm your selection and place your order through our order flow.",
+      title: "Choose Your Account",
+      description: "Select the account that best fits your project or business requirements.",
       icon: "shopping-cart",
     },
     {
       step: 4,
-      title: "Receive Access",
-      description: "Our team follows up to deliver your account details and answer any questions.",
+      title: "Contact / Order",
+      description: "Complete your order through the contact or order process.",
       icon: "circle-check-big",
     },
   ] satisfies HowItWorksStep[],

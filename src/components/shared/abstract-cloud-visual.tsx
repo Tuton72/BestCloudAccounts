@@ -3,12 +3,22 @@ import { cn } from "@/lib/utils";
 
 const NODE_ICONS: IconName[] = ["server", "database", "cpu", "network", "cloud", "shield-check"];
 
+interface AbstractCloudVisualProps {
+  className?: string;
+  /** Optional center-node icon override, so different homepage sections (Cloud
+   * Accounts, AWS AI, AWS Credit, etc.) can reuse this same lightweight,
+   * zero-network-weight visual with a distinct focal icon. Defaults to the
+   * original "cloud" center node so every existing usage is unaffected. */
+  emphasize?: IconName;
+}
+
 /**
  * Abstract cloud-infrastructure visual: glowing gradient blobs behind a grid
  * of node icons connected by faint lines. Purely decorative (aria-hidden) —
  * not a copy of any AWS UI or screenshot.
  */
-export function AbstractCloudVisual({ className }: { className?: string }) {
+export function AbstractCloudVisual({ className, emphasize = "cloud" }: AbstractCloudVisualProps) {
+  const nodes = NODE_ICONS.map((name, index) => (index === 4 ? emphasize : name));
   return (
     <div
       aria-hidden="true"
@@ -29,9 +39,9 @@ export function AbstractCloudVisual({ className }: { className?: string }) {
       </svg>
 
       <div className="relative grid h-full grid-cols-3 place-items-center gap-6 p-10">
-        {NODE_ICONS.map((name, index) => (
+        {nodes.map((name, index) => (
           <div
-            key={name}
+            key={`${name}-${index}`}
             className={cn(
               "flex h-12 w-12 items-center justify-center rounded-xl border border-border bg-surface text-accent-cyan shadow-[0_0_24px_-8px_rgba(20,184,166,0.5)]",
               index === 4 && "col-start-2 row-start-2 h-16 w-16 border-accent/40 text-accent shadow-[0_0_28px_-6px_rgba(16,185,129,0.55)]",

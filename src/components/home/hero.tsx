@@ -17,10 +17,7 @@ export function Hero() {
             {heroContent.eyebrow}
           </span>
           <h1 className="mt-5 text-4xl font-semibold leading-[1.12] tracking-tight text-ink sm:text-5xl lg:text-[3.4rem]">
-            {heroContent.headline}
-            <br />
-            {heroContent.headlinePrefix}{" "}
-            <span className="text-gradient">{heroContent.headlineHighlight}</span>
+            {heroContent.headline} <span className="text-gradient">{heroContent.headlineHighlight}</span>
           </h1>
           <p className="mt-6 max-w-xl text-base text-ink-muted sm:text-lg">{heroContent.subheadline}</p>
           <div className="mt-8 flex flex-col gap-3 sm:flex-row">

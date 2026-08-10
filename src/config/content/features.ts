@@ -4,40 +4,41 @@ export interface FeatureItem {
   icon: string; // lucide-react icon name
 }
 
-/** "Why choose us" section — editable, no unverified claims. */
+/** "Why Choose BestCloudAccounts" homepage section. */
 export const whyChooseUsContent = {
-  heading: "Why Choose Best Cloud Accounts",
-  subheading: "A focused marketplace for AWS accounts and credit, built around clarity and support.",
+  heading: "A Premium Cloud Account Marketplace",
+  subheading:
+    "Choosing the right cloud account marketplace is important for a smooth and effective infrastructure setup. BestCloudAccounts offers a combination of product variety, clear specifications, and a professional presentation that distinguishes it in the market.",
   features: [
     {
-      title: "Professional Cloud Products",
-      description: "AWS accounts and credit packages configured for real, serious workloads.",
+      title: "Curated Selection",
+      description: "Browse a vetted range of cloud accounts and AWS solutions.",
+      icon: "sparkles",
+    },
+    {
+      title: "Clear Specifications",
+      description: "Compare vCPU, configurations, and account variants easily.",
+      icon: "clipboard-list",
+    },
+    {
+      title: "Multiple Cloud Options",
+      description: "Find accounts from various providers in one place.",
+      icon: "cloud",
+    },
+    {
+      title: "AWS Focus",
+      description: "Dedicated categories for AWS compute, AI, and credit accounts.",
       icon: "server",
     },
     {
-      title: "Flexible Product Options",
-      description: "Multiple compute tiers and credit sizes so you can match the account to your workload.",
-      icon: "sliders-horizontal",
+      title: "Simple Discovery",
+      description: "Product categories and filters help you locate the right account.",
+      icon: "search",
     },
     {
-      title: "Clear Pricing",
-      description: "Every product shows its price up front — no hidden fees at checkout.",
-      icon: "tag",
-    },
-    {
-      title: "Fast Support",
-      description: "Reach our team directly through Telegram or email with questions before or after ordering.",
-      icon: "headset",
-    },
-    {
-      title: "Secure Ordering",
-      description: "Product and pricing details are verified server-side before any order is created.",
+      title: "Transparent Information",
+      description: "Product pages provide clear details on available configurations.",
       icon: "shield-check",
-    },
-    {
-      title: "Scalable Infrastructure",
-      description: "Built to grow — more providers and product lines can be added without a redesign.",
-      icon: "layers",
     },
   ] satisfies FeatureItem[],
 };
