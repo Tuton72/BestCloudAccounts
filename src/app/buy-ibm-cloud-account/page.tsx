@@ -11,11 +11,12 @@ const CATEGORY_SLUG = "cloud-accounts" as const;
 const SLUG = "ibm-cloud-account";
 
 /**
- * Static route that intentionally shadows /cloud-accounts/[slug] for this
- * one product (Next.js resolves the more specific static segment first).
- * This lets the IBM Cloud page carry extra long-form content without
- * touching the generic ProductDetail route used by the other Cloud
- * Account products.
+ * Dedicated top-level route for the IBM Cloud product. Previously served at
+ * /cloud-accounts/ibm-cloud-account; that path now permanently redirects
+ * here (see next.config.ts). The product's data category is still
+ * "cloud-accounts" — only the URL moved — so it still renders via the
+ * same ProductDetail section plus its long-form article content as every
+ * other Cloud Account product.
  */
 export async function generateMetadata(): Promise<Metadata> {
   const category = await getCategoryBySlug(CATEGORY_SLUG);

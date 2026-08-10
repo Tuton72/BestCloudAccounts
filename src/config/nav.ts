@@ -10,19 +10,19 @@ export interface NavGroup extends NavItem {
 
 /** The 13 Cloud Account product pages, plus the Amazon AWS listing page — shared by the header dropdown and the footer. */
 export const CLOUD_PROVIDER_LINKS: NavItem[] = [
-  { label: "OVHCloud", href: "/cloud-accounts/ovhcloud-account" },
-  { label: "IBM Cloud", href: "/cloud-accounts/ibm-cloud-account" },
-  { label: "Verified iCloud", href: "/cloud-accounts/verified-icloud-account" },
-  { label: "Alibaba Cloud", href: "/cloud-accounts/alibaba-cloud-account" },
-  { label: "UpCloud", href: "/cloud-accounts/upcloud-account" },
-  { label: "Kamatera", href: "/cloud-accounts/kamatera-account" },
-  { label: "Oracle Cloud", href: "/cloud-accounts/oracle-cloud-account" },
-  { label: "Google Cloud", href: "/cloud-accounts/google-cloud-account" },
-  { label: "Linode", href: "/cloud-accounts/linode-account" },
-  { label: "Vultr", href: "/cloud-accounts/vultr-account" },
-  { label: "Hetzner", href: "/cloud-accounts/hetzner-account" },
-  { label: "DigitalOcean", href: "/cloud-accounts/digital-ocean-account" },
-  { label: "Azure Accounts", href: "/cloud-accounts/azure-accounts" },
+  { label: "OVHCloud", href: "/buy-ovhcloud-account" },
+  { label: "IBM Cloud", href: "/buy-ibm-cloud-account" },
+  { label: "Verified iCloud", href: "/buy-verified-icloud-account" },
+  { label: "Alibaba Cloud", href: "/buy-alibaba-cloud-account" },
+  { label: "UpCloud", href: "/buy-upcloud-account" },
+  { label: "Kamatera", href: "/buy-kamatera-account" },
+  { label: "Oracle Cloud", href: "/buy-oracle-cloud-account" },
+  { label: "Google Cloud", href: "/buy-google-cloud-account" },
+  { label: "Linode", href: "/buy-linode-account" },
+  { label: "Vultr", href: "/buy-vultr-account" },
+  { label: "Hetzner", href: "/buy-hetzner-account" },
+  { label: "DigitalOcean", href: "/buy-digital-ocean-account" },
+  { label: "Azure Accounts", href: "/buy-azure-accounts" },
   { label: "Amazon AWS", href: "/buy-aws-accounts" },
 ];
 

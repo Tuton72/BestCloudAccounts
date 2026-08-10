@@ -11,11 +11,12 @@ const CATEGORY_SLUG = "cloud-accounts" as const;
 const SLUG = "vultr-account";
 
 /**
- * Static route that intentionally shadows /cloud-accounts/[slug] for this
- * one product (Next.js resolves the more specific static segment first).
- * This lets the Vultr page carry extra long-form content without touching
- * the generic ProductDetail route used by the other 12 Cloud Account
- * products.
+ * Dedicated top-level route for the Vultr product. Previously served at
+ * /cloud-accounts/vultr-account; that path now permanently redirects here
+ * (see next.config.ts). The product's data category is still
+ * "cloud-accounts" — only the URL moved — so it still renders via the
+ * same ProductDetail section plus its long-form article content as every
+ * other Cloud Account product.
  */
 export async function generateMetadata(): Promise<Metadata> {
   const category = await getCategoryBySlug(CATEGORY_SLUG);
