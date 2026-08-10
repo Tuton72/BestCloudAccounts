@@ -24,7 +24,7 @@ export function ProductHero({ image, imageAlt }: ProductHeroProps) {
     return (
       <div
         className={cn(
-          "relative overflow-hidden rounded-2xl border border-border bg-canvas-secondary",
+          "relative overflow-hidden rounded-2xl border border-accent-cyan/15 bg-canvas-secondary shadow-[0_0_60px_-24px_rgba(20,184,166,0.35)]",
           FRAME_CLASSES,
         )}
       >
@@ -34,6 +34,7 @@ export function ProductHero({ image, imageAlt }: ProductHeroProps) {
           fill
           sizes="(min-width: 1024px) 50vw, 100vw"
           className="object-contain p-6"
+          priority
         />
       </div>
     );

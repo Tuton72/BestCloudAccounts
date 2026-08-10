@@ -7,11 +7,17 @@ interface OrderButtonProps {
   variantName: string;
   price: number;
   productPath: string;
-  size?: "md" | "lg";
+  size?: "md" | "lg" | "xl";
   /** "solid" for the prominent detail-page CTA, "ghost" for a lighter card-level affordance. */
   variant?: "solid" | "ghost";
   className?: string;
 }
+
+const SIZE_CLASSES: Record<NonNullable<OrderButtonProps["size"]>, string> = {
+  md: "h-10 px-5 text-sm",
+  lg: "h-12 px-7 text-base",
+  xl: "h-14 px-8 text-base",
+};
 
 /**
  * Order CTA. Opens Telegram with the product/variant/price prefilled.
@@ -39,7 +45,7 @@ export function OrderButton({
         variant === "solid"
           ? "bg-gradient-primary text-white shadow-[0_0_0_1px_rgba(16,185,129,0.35)] hover:brightness-110 hover:shadow-[0_0_28px_-6px_rgba(20,184,166,0.55)]"
           : "border border-accent/20 text-ink-secondary hover:border-accent/45 hover:text-ink",
-        size === "lg" ? "h-12 px-7 text-base" : "h-10 px-5 text-sm",
+        SIZE_CLASSES[size],
         className,
       )}
     >

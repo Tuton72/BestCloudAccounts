@@ -89,8 +89,10 @@ export function ProductPurchasePanel({
           </span>
           <span
             className={cn(
-              "mt-0.5 block break-words text-sm",
-              highlightVariant ? "font-semibold text-accent-cyan" : "font-medium text-ink",
+              "block break-words",
+              highlightVariant
+                ? "mt-1.5 text-base font-semibold text-accent-cyan sm:text-lg"
+                : "mt-0.5 text-sm font-medium text-ink",
             )}
           >
             {variantLabel}
@@ -133,6 +135,7 @@ export function ProductPurchasePanel({
         variantName={selectedVariant.name}
         price={selectedVariant.price}
         productPath={href}
+        size={highlightVariant ? "xl" : "lg"}
         className="mt-6 w-full"
       />
 
@@ -140,7 +143,13 @@ export function ProductPurchasePanel({
         <ul className="mt-6 flex flex-col gap-2 border-t border-border pt-5">
           {product.features.map((feature) => (
             <li key={feature.label} className="flex items-center gap-2 text-sm text-ink-secondary">
-              <Icon name="check" size={16} className="shrink-0 text-success" aria-hidden="true" />
+              {highlightVariant ? (
+                <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-success/10 text-success">
+                  <Icon name="check" size={13} aria-hidden="true" />
+                </span>
+              ) : (
+                <Icon name="check" size={16} className="shrink-0 text-success" aria-hidden="true" />
+              )}
               {feature.label}
             </li>
           ))}

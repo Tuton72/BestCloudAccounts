@@ -13,6 +13,7 @@ import { Container } from "@/components/ui/container";
 import { getCategoryBySlug } from "@/lib/data/categories";
 import { getProductBySlug, getRelatedProducts } from "@/lib/data/products";
 import { buildProductJsonLd } from "@/lib/seo";
+import { cn } from "@/lib/utils";
 import type { Crumb } from "@/components/ui/breadcrumbs";
 import type { CategorySlug } from "@/types/catalog";
 
@@ -128,7 +129,13 @@ export async function ProductDetail({
         </Container>
       ) : null}
 
-      <Container id="purchase" className="grid grid-cols-1 gap-8 pb-16 lg:grid-cols-2 lg:gap-10">
+      <Container
+        id="purchase"
+        className={cn(
+          "grid grid-cols-1 gap-8 pb-16 lg:grid-cols-2 lg:gap-10",
+          highlightVariant && "pt-10 sm:pt-14",
+        )}
+      >
         <ProductHero image={product.image} imageAlt={product.image ? `${product.name} illustration` : undefined} />
         <ProductPurchasePanel
           product={product}
