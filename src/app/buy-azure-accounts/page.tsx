@@ -30,7 +30,7 @@ export default function AzureAccountsPage() {
   return (
     <div>
       {/* Existing Azure hero + product section — unchanged, same as every other Cloud Account product. */}
-      <ProductDetail categorySlug={CATEGORY_SLUG} slug={SLUG} />
+      <ProductDetail categorySlug={CATEGORY_SLUG} slug={SLUG} showVariantPricingGrid />
 
       <ContactPrompt
         heading="Need Help Choosing an Azure Account?"

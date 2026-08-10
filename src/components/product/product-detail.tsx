@@ -6,6 +6,7 @@ import { ProductHero } from "@/components/product/product-hero";
 import { ProductPurchasePanel } from "@/components/product/product-purchase-panel";
 import { RelatedProducts } from "@/components/product/related-products";
 import { SpecificationGrid } from "@/components/product/specification-grid";
+import { VariantPricingGrid } from "@/components/product/variant-pricing-grid";
 import { Faq } from "@/components/shared/faq";
 import { Breadcrumbs } from "@/components/ui/breadcrumbs";
 import { Container } from "@/components/ui/container";
@@ -18,6 +19,13 @@ import type { CategorySlug } from "@/types/catalog";
 interface ProductDetailProps {
   categorySlug: CategorySlug;
   slug: string;
+  /**
+   * Shows every variant as its own pricing card (matching the ProductCard
+   * grid on category listings like /buy-aws-accounts) above the usual
+   * hero + purchase panel. Off by default — every product page keeps its
+   * current single hero+panel layout unless explicitly opted in.
+   */
+  showVariantPricingGrid?: boolean;
 }
 
 /**
@@ -32,7 +40,7 @@ const CATEGORY_PARENT_CRUMB: Partial<Record<CategorySlug, Crumb>> = {
   "buy-aws-accounts": { label: "Cloud Accounts", href: "/cloud-accounts" },
 };
 
-export async function ProductDetail({ categorySlug, slug }: ProductDetailProps) {
+export async function ProductDetail({ categorySlug, slug, showVariantPricingGrid }: ProductDetailProps) {
   const category = await getCategoryBySlug(categorySlug);
   const product = category ? await getProductBySlug(categorySlug, slug) : null;
 
@@ -60,7 +68,16 @@ export async function ProductDetail({ categorySlug, slug }: ProductDetailProps) 
         </Container>
       </div>
 
-      <Container className="grid grid-cols-1 gap-8 pb-16 lg:grid-cols-2 lg:gap-10">
+      {showVariantPricingGrid ? (
+        <Container className="pb-10 pt-10 sm:pb-14 sm:pt-14">
+          <h2 className="text-2xl font-semibold tracking-tight text-ink sm:text-3xl">Available Account Variants</h2>
+          <div className="mt-8">
+            <VariantPricingGrid product={product} category={category} />
+          </div>
+        </Container>
+      ) : null}
+
+      <Container id="purchase" className="grid grid-cols-1 gap-8 pb-16 lg:grid-cols-2 lg:gap-10">
         <ProductHero />
         <ProductPurchasePanel product={product} category={category} />
       </Container>

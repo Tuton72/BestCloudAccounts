@@ -30,7 +30,7 @@ export default function HetznerAccountPage() {
   return (
     <div>
       {/* Existing Hetzner hero + product section — unchanged, same as every other Cloud Account product. */}
-      <ProductDetail categorySlug={CATEGORY_SLUG} slug={SLUG} />
+      <ProductDetail categorySlug={CATEGORY_SLUG} slug={SLUG} showVariantPricingGrid />
 
       <ContactPrompt
         heading="Need Help Choosing a Hetzner Account?"
