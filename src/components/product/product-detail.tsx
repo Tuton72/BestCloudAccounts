@@ -2,6 +2,7 @@ import { notFound } from "next/navigation";
 import { FinalCTA } from "@/components/home/final-cta";
 import { HowItWorks } from "@/components/home/how-it-works";
 import { ProductFeatures } from "@/components/product/product-features";
+import { ProductChatCTA } from "@/components/product/product-chat-cta";
 import { ProductHero } from "@/components/product/product-hero";
 import { ProductPurchasePanel } from "@/components/product/product-purchase-panel";
 import { RelatedProducts } from "@/components/product/related-products";
@@ -55,6 +56,12 @@ interface ProductDetailProps {
    * opted in.
    */
   highlightVariant?: boolean;
+  /**
+   * Shows the generic, reusable customer-contact CTA (no product/provider
+   * name) directly below the product image. Off by default — every page
+   * keeps its current left-column layout unless explicitly opted in.
+   */
+  showChatCta?: boolean;
 }
 
 /**
@@ -81,6 +88,7 @@ export async function ProductDetail({
   hideFinalCta,
   hideRelatedProducts,
   highlightVariant,
+  showChatCta,
 }: ProductDetailProps) {
   const category = await getCategoryBySlug(categorySlug);
   const product = category ? await getProductBySlug(categorySlug, slug) : null;
@@ -136,7 +144,10 @@ export async function ProductDetail({
           highlightVariant && "pt-10 sm:pt-14",
         )}
       >
-        <ProductHero image={product.image} imageAlt={product.image ? `${product.name} illustration` : undefined} />
+        <div className="flex flex-col gap-5">
+          <ProductHero image={product.image} imageAlt={product.image ? `${product.name} illustration` : undefined} />
+          {showChatCta ? <ProductChatCTA /> : null}
+        </div>
         <ProductPurchasePanel
           product={product}
           category={category}
