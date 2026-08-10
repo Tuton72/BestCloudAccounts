@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import { ContactPrompt } from "@/components/product/contact-prompt";
 import { ProductDetail } from "@/components/product/product-detail";
 import { HetznerArticle } from "@/components/product/hetzner-article";
 import { articleTags } from "@/config/content/hetzner-article";
@@ -40,10 +39,6 @@ export default function HetznerAccountPage() {
         }}
       />
 
-      <ContactPrompt
-        heading="Need Help Choosing a Hetzner Account?"
-        description="Have questions about Hetzner Cloud accounts, server plans, traffic limits, data center locations, VPS specifications, or account variants? Our team is available to help you choose the appropriate option."
-      />
       <HetznerArticle />
     </div>
   );

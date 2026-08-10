@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import { ContactPrompt } from "@/components/product/contact-prompt";
 import { ProductDetail } from "@/components/product/product-detail";
 import { LinodeArticle } from "@/components/product/linode-article";
 import { articleTags } from "@/config/content/linode-article";
@@ -40,10 +39,6 @@ export default function LinodeAccountPage() {
         }}
       />
 
-      <ContactPrompt
-        heading="Need Help Choosing a Linode Account?"
-        description="Have questions about Linode accounts, VPS plans, CPU options, storage, network transfer, data centers, Kubernetes, or account specifications? Our team is available to help you choose the appropriate option."
-      />
       <LinodeArticle />
     </div>
   );

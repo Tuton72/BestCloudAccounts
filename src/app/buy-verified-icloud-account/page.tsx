@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import { ContactPrompt } from "@/components/product/contact-prompt";
 import { ProductDetail } from "@/components/product/product-detail";
 import { VerifiedICloudArticle } from "@/components/product/verified-icloud-article";
 import { articleTags } from "@/config/content/verified-icloud-article";
@@ -40,10 +39,6 @@ export default function VerifiedICloudAccountPage() {
         }}
       />
 
-      <ContactPrompt
-        heading="Need Help Choosing a Verified iCloud Account?"
-        description="Have questions about iCloud accounts, regions, storage, Apple services, verification, or account specifications? Our team is available to help you choose the appropriate option."
-      />
       <VerifiedICloudArticle />
     </div>
   );

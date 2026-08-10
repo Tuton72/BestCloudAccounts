@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import { ContactPrompt } from "@/components/product/contact-prompt";
 import { ProductDetail } from "@/components/product/product-detail";
 import { OracleCloudArticle } from "@/components/product/oracle-cloud-article";
 import { articleTags } from "@/config/content/oracle-cloud-article";
@@ -40,10 +39,6 @@ export default function OracleCloudAccountPage() {
         }}
       />
 
-      <ContactPrompt
-        heading="Need Help Choosing an Oracle Cloud Account?"
-        description="Have questions about Oracle Cloud accounts, Always Free resources, Universal Credits, VPS, databases, compute, regions, or account specifications? Our team is available to help you choose the appropriate option."
-      />
       <OracleCloudArticle />
     </div>
   );

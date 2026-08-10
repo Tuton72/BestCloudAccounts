@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import { ContactPrompt } from "@/components/product/contact-prompt";
 import { ProductDetail } from "@/components/product/product-detail";
 import { KamateraArticle } from "@/components/product/kamatera-article";
 import { articleTags } from "@/config/content/kamatera-article";
@@ -40,10 +39,6 @@ export default function KamateraAccountPage() {
         }}
       />
 
-      <ContactPrompt
-        heading="Need Help Choosing a Kamatera Account?"
-        description="Have questions about Kamatera accounts, free trials, cloud servers, VPS configurations, server limits, or account specifications? Our team is available to help you choose the appropriate option."
-      />
       <KamateraArticle />
     </div>
   );

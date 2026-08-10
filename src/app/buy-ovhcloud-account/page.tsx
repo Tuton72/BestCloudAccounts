@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import { ContactPrompt } from "@/components/product/contact-prompt";
 import { ProductDetail } from "@/components/product/product-detail";
 import { OvhcloudArticle } from "@/components/product/ovhcloud-article";
 import { articleTags } from "@/config/content/ovhcloud-article";
@@ -40,10 +39,6 @@ export default function OvhcloudAccountPage() {
         }}
       />
 
-      <ContactPrompt
-        heading="Need Help Choosing an OVHcloud Account?"
-        description="Have questions about OVHcloud accounts, Public Cloud, Private Cloud, VPS, Dedicated Servers, regions, billing, or account specifications? Our team is available to help you choose the appropriate option."
-      />
       <OvhcloudArticle />
     </div>
   );

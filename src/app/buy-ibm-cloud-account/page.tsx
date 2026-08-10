@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import { ContactPrompt } from "@/components/product/contact-prompt";
 import { ProductDetail } from "@/components/product/product-detail";
 import { IbmCloudArticle } from "@/components/product/ibm-cloud-article";
 import { articleTags } from "@/config/content/ibm-cloud-article";
@@ -40,10 +39,6 @@ export default function IbmCloudAccountPage() {
         }}
       />
 
-      <ContactPrompt
-        heading="Need Help Choosing an IBM Cloud Account?"
-        description="Have questions about IBM Cloud accounts, cloud credits, Lite plans, AI services, VPS, virtual servers, Kubernetes, databases, or account specifications? Our team is available to help you choose the appropriate option."
-      />
       <IbmCloudArticle />
     </div>
   );

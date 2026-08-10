@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import { ContactPrompt } from "@/components/product/contact-prompt";
 import { ProductDetail } from "@/components/product/product-detail";
 import { AwsFreeTrialArticle } from "@/components/product/aws-free-trial-article";
 import { getCategoryBySlug } from "@/lib/data/categories";
@@ -37,10 +36,6 @@ export default function AwsFreeTrialAccountPage() {
         }}
       />
 
-      <ContactPrompt
-        heading="Need Help Choosing an AWS Free Trial Account?"
-        description="Have questions about AWS Free Trial accounts, AWS services, regions, account specifications, or choosing the right AWS account? Our team is available to help you choose the appropriate option."
-      />
       <AwsFreeTrialArticle />
     </div>
   );

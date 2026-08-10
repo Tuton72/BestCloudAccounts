@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import { ContactPrompt } from "@/components/product/contact-prompt";
 import { ProductDetail } from "@/components/product/product-detail";
 import { Aws8VcpuArticle } from "@/components/product/aws-8vcpu-article";
 import { getCategoryBySlug } from "@/lib/data/categories";
@@ -37,10 +36,6 @@ export default function Aws8VcpuAccountPage() {
         }}
       />
 
-      <ContactPrompt
-        heading="Need Help Choosing an AWS 8 vCPU Account?"
-        description="Have questions about vCPU limits, AWS regions, credits, EC2 instances, account specifications, or choosing the right AWS account? Our team is available to help you choose the appropriate option."
-      />
       <Aws8VcpuArticle />
     </div>
   );

@@ -1,5 +1,4 @@
 import { notFound } from "next/navigation";
-import { FinalCTA } from "@/components/home/final-cta";
 import { HowItWorks } from "@/components/home/how-it-works";
 import { ProductFeatures } from "@/components/product/product-features";
 import { ProductChatCTA } from "@/components/product/product-chat-cta";
@@ -47,8 +46,6 @@ interface ProductDetailProps {
   hideHowItWorks?: boolean;
   /** Hides the generic shared FAQ block below the pricing area. */
   hideFaq?: boolean;
-  /** Hides the generic FinalCTA at the end — for pages whose own long-form content already ends with an appropriate CTA. */
-  hideFinalCta?: boolean;
   /** Hides the "Related ..." section here — for pages that render it themselves further down the page instead. */
   hideRelatedProducts?: boolean;
   /**
@@ -88,7 +85,6 @@ export async function ProductDetail({
   hideFeatures,
   hideHowItWorks,
   hideFaq,
-  hideFinalCta,
   hideRelatedProducts,
   highlightVariant = true,
   showChatCta = true,
@@ -191,8 +187,6 @@ export async function ProductDetail({
           </Container>
         </div>
       ) : null}
-
-      {hideFinalCta ? null : <FinalCTA />}
     </div>
   );
 }

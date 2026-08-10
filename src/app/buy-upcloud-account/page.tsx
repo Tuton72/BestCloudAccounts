@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import { ContactPrompt } from "@/components/product/contact-prompt";
 import { ProductDetail } from "@/components/product/product-detail";
 import { UpCloudArticle } from "@/components/product/upcloud-article";
 import { articleTags } from "@/config/content/upcloud-article";
@@ -40,10 +39,6 @@ export default function UpCloudAccountPage() {
         }}
       />
 
-      <ContactPrompt
-        heading="Need Help Choosing an UpCloud Account?"
-        description="Have questions about UpCloud accounts, MaxIOPS storage, VPS, GPU servers, Kubernetes, data centers, server plans, or account specifications? Our team is available to help you choose the appropriate option."
-      />
       <UpCloudArticle />
     </div>
   );

@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import { ContactPrompt } from "@/components/product/contact-prompt";
 import { ProductDetail } from "@/components/product/product-detail";
 import { VultrArticle } from "@/components/product/vultr-article";
 import { articleTags } from "@/config/content/vultr-article";
@@ -40,10 +39,6 @@ export default function VultrAccountPage() {
         }}
       />
 
-      <ContactPrompt
-        heading="Need Help Choosing a Vultr Account?"
-        description="Have questions about Vultr accounts, cloud credits, VPS access, instances, or account specifications? Our team is available to help you choose the appropriate option."
-      />
       <VultrArticle />
     </div>
   );

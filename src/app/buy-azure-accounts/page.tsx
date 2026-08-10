@@ -51,7 +51,6 @@ export default async function AzureAccountsPage() {
         hideFeatures
         hideHowItWorks
         hideFaq
-        hideFinalCta
         hideRelatedProducts
         highlightVariant
         showChatCta

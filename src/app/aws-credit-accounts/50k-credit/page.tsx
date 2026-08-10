@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import { ContactPrompt } from "@/components/product/contact-prompt";
 import { ProductDetail } from "@/components/product/product-detail";
 import { Aws50kCreditArticle } from "@/components/product/aws-50k-credit-article";
 import { getCategoryBySlug } from "@/lib/data/categories";
@@ -37,10 +36,6 @@ export default function Aws50kCreditAccountPage() {
         }}
       />
 
-      <ContactPrompt
-        heading="Need Help Choosing an AWS 50K Credit Account?"
-        description="Have questions about AWS credits, vCPU limits, enterprise workloads, AI/ML workloads, regions, or choosing the right AWS credit account?"
-      />
       <Aws50kCreditArticle />
     </div>
   );

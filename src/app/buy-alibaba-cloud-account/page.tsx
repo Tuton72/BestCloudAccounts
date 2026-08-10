@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import { ContactPrompt } from "@/components/product/contact-prompt";
 import { ProductDetail } from "@/components/product/product-detail";
 import { AlibabaCloudArticle } from "@/components/product/alibaba-cloud-article";
 import { articleTags } from "@/config/content/alibaba-cloud-article";
@@ -40,10 +39,6 @@ export default function AlibabaCloudAccountPage() {
         }}
       />
 
-      <ContactPrompt
-        heading="Need Help Choosing an Alibaba Cloud Account?"
-        description="Have questions about Alibaba Cloud accounts, free trial quotas, ECS instances, cloud credits, AI workloads, or account specifications? Our team is available to help you choose the appropriate option."
-      />
       <AlibabaCloudArticle />
     </div>
   );

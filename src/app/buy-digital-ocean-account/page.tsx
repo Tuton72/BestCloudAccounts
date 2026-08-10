@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import { ContactPrompt } from "@/components/product/contact-prompt";
 import { DigitalOceanArticle } from "@/components/product/digital-ocean-article";
 import { ProductDetail } from "@/components/product/product-detail";
 import { articleTags } from "@/config/content/digital-ocean-article";
@@ -40,10 +39,6 @@ export default function DigitalOceanAccountPage() {
         }}
       />
 
-      <ContactPrompt
-        heading="Need Help Choosing a DigitalOcean Account?"
-        description="Have questions about DigitalOcean accounts, credits, Droplets, Port 25, or account specifications? Our team is available to help you choose the appropriate option."
-      />
       <DigitalOceanArticle />
     </div>
   );
