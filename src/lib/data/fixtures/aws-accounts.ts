@@ -1,9 +1,9 @@
-import type { Product } from "@/types/catalog";
+import type { ProductSeed } from "@/types/catalog";
 import { SHARED_PRODUCT_FAQS, SHARED_PRODUCT_FEATURES } from "./shared";
 
 const CATEGORY_ID = "a0000000-0000-4000-8000-000000000001";
 
-export const AWS_ACCOUNTS: Product[] = [
+export const AWS_ACCOUNTS: ProductSeed[] = [
   {
     id: "b0000000-0000-4000-8000-000000000001",
     categoryId: CATEGORY_ID,

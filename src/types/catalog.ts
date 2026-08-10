@@ -76,6 +76,15 @@ export interface Product {
   provider: string;
   name: string;
   slug: string;
+  /**
+   * URL-facing slug generated once from `name` (see slugifyProductTitle /
+   * fixtures/index.ts) and stored on the product — every product link and
+   * the product-detail route (`/[productSlug]`) use this, never `slug` +
+   * `categorySlug` directly. Stable once assigned: this codebase only ever
+   * (re)computes it when a product has none yet, matching the "don't
+   * reslug an already-indexed product" rule.
+   */
+  productSlug: string;
   shortDescription: string | null;
   description?: string | null;
   basePrice: number;
@@ -92,3 +101,13 @@ export interface Product {
   faqs: ProductFaq[];
   variants: ProductVariant[];
 }
+
+/**
+ * Shape of a product fixture *before* `productSlug` is attached. The
+ * per-category fixture files (src/lib/data/fixtures/*.ts) build products in
+ * this shape; `fixtures/index.ts` is the single place that computes and
+ * attaches `productSlug` for every one of them, so no fixture file has to
+ * do it by hand and no product can be added without automatically getting
+ * one.
+ */
+export type ProductSeed = Omit<Product, "productSlug">;

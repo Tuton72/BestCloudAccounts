@@ -1,4 +1,4 @@
-import type { Product, ProductSpecification } from "@/types/catalog";
+import type { ProductSeed, ProductSpecification } from "@/types/catalog";
 import { SHARED_PRODUCT_FAQS, SHARED_PRODUCT_FEATURES } from "./shared";
 
 const CATEGORY_ID = "a0000000-0000-4000-8000-000000000005";
@@ -34,7 +34,7 @@ function buildProduct({
   featured = false,
   variantName,
   specs,
-}: Spec): Product {
+}: Spec): ProductSeed {
   const id = `40000000-0000-4000-8000-${String(n).padStart(12, "0")}`;
   const variantId = `50000000-0000-4000-8000-${String(n).padStart(12, "0")}`;
 
@@ -72,7 +72,7 @@ function buildProduct({
   };
 }
 
-export const BUY_AWS_ACCOUNTS: Product[] = [
+export const BUY_AWS_ACCOUNTS: ProductSeed[] = [
   buildProduct({
     n: 1,
     name: "Buy AWS 512vCPU Account",

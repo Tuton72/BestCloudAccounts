@@ -8,21 +8,29 @@ export interface NavGroup extends NavItem {
   children?: NavItem[];
 }
 
-/** The 13 Cloud Account product pages, plus the Amazon AWS listing page — shared by the header dropdown and the footer. */
+/**
+ * The 13 Cloud Account product pages, plus the Amazon AWS listing page —
+ * shared by the header dropdown and the footer. Each product href below is
+ * that product's real, current `productSlug` (see src/lib/routes.ts /
+ * src/lib/slug.ts) — kept here as literal strings, matching this file's
+ * existing static/sync architecture, rather than importing the product
+ * catalog into client-bundled nav config. If any of these 13 products'
+ * titles ever change, its productSlug (and so this href) changes too.
+ */
 export const CLOUD_PROVIDER_LINKS: NavItem[] = [
-  { label: "OVHCloud", href: "/buy-ovhcloud-account" },
-  { label: "IBM Cloud", href: "/buy-ibm-cloud-account" },
-  { label: "Verified iCloud", href: "/buy-verified-icloud-account" },
-  { label: "Alibaba Cloud", href: "/buy-alibaba-cloud-account" },
-  { label: "UpCloud", href: "/buy-upcloud-account" },
-  { label: "Kamatera", href: "/buy-kamatera-account" },
-  { label: "Oracle Cloud", href: "/buy-oracle-cloud-account" },
-  { label: "Google Cloud", href: "/buy-google-cloud-account" },
-  { label: "Linode", href: "/buy-linode-account" },
-  { label: "Vultr", href: "/buy-vultr-account" },
-  { label: "Hetzner", href: "/buy-hetzner-account" },
-  { label: "DigitalOcean", href: "/buy-digital-ocean-account" },
-  { label: "Azure Accounts", href: "/buy-azure-accounts" },
+  { label: "OVHCloud", href: "/Buy-OVHCloud-Account" },
+  { label: "IBM Cloud", href: "/Buy-IBM-Cloud-Account" },
+  { label: "Verified iCloud", href: "/Buy-Verified-iCloud-Account" },
+  { label: "Alibaba Cloud", href: "/Buy-Alibaba-Cloud-Account" },
+  { label: "UpCloud", href: "/Buy-UpCloud-Account" },
+  { label: "Kamatera", href: "/Buy-Kamatera-Account" },
+  { label: "Oracle Cloud", href: "/Buy-Oracle-Cloud-Account" },
+  { label: "Google Cloud", href: "/Buy-Google-Cloud-Account" },
+  { label: "Linode", href: "/Buy-Linode-Account" },
+  { label: "Vultr", href: "/Buy-Vultr-Account" },
+  { label: "Hetzner", href: "/Buy-Hetzner-Account" },
+  { label: "DigitalOcean", href: "/Buy-Digital-Ocean-Account" },
+  { label: "Azure Accounts", href: "/Buy-Azure-Accounts" },
   { label: "Amazon AWS", href: "/buy-aws-accounts" },
 ];
 

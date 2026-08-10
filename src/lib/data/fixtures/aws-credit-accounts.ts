@@ -1,4 +1,4 @@
-import type { Product } from "@/types/catalog";
+import type { ProductSeed } from "@/types/catalog";
 import { SHARED_PRODUCT_FAQS, SHARED_PRODUCT_FEATURES } from "./shared";
 
 const CATEGORY_ID = "a0000000-0000-4000-8000-000000000003";
@@ -13,7 +13,7 @@ function creditProduct(
   creditLabel: string,
   price: number,
   featured: boolean,
-): Product {
+): ProductSeed {
   const id = `d0000000-0000-4000-8000-00000000000${n}`;
   const variantId = `10000000-0000-4000-8000-00000000000${n}`;
   const slug = `${kLabel}-credit`;
@@ -49,7 +49,7 @@ function creditProduct(
   };
 }
 
-export const AWS_CREDIT_ACCOUNTS: Product[] = [
+export const AWS_CREDIT_ACCOUNTS: ProductSeed[] = [
   creditProduct(1, "1k", "1,000", 240, true),
   creditProduct(2, "5k", "5,000", 1199, true),
   creditProduct(3, "10k", "10,000", 2399, true),

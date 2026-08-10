@@ -52,6 +52,24 @@ export async function getProductBySlug(
   return products.find((product) => product.slug === slug) ?? null;
 }
 
+/*
+ * Supabase equivalent:
+ *   supabase.from("products")
+ *     .select("*, product_variants(*), product_specifications(*), product_features(*), product_faqs(*)")
+ *     .eq("product_slug", productSlug)
+ *     .eq("status", "active")
+ *     .maybeSingle();
+ */
+export async function getProductByProductSlug(productSlug: string): Promise<Product | null> {
+  const products = await getAllProducts();
+  // Case-insensitive: Next.js's own routing/redirect matching is
+  // case-insensitive, so a request can reach this with any casing of a
+  // valid slug. The route itself (src/app/[productSlug]/page.tsx)
+  // redirects to the exact-case canonical URL when they differ.
+  const target = productSlug.toLowerCase();
+  return products.find((product) => product.productSlug.toLowerCase() === target) ?? null;
+}
+
 /** Products from the same category, excluding the current product. */
 export async function getRelatedProducts(product: Product, limit = 3): Promise<Product[]> {
   const categoryProducts = await getProductsByCategory(product.categorySlug);

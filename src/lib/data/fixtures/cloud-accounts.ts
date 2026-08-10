@@ -1,5 +1,8 @@
-import { formatPriceRange } from "@/lib/format";
-import type { Product } from "@/types/catalog";
+// Relative import (not the "@/" alias) — this module is also imported
+// directly by next.config.ts to generate legacy-URL redirects, and the
+// alias isn't resolved outside the normal Next.js app build pipeline.
+import { formatPriceRange } from "../../format";
+import type { ProductSeed } from "@/types/catalog";
 import { SHARED_PRODUCT_FAQS, SHARED_PRODUCT_FEATURES } from "./shared";
 
 const CATEGORY_ID = "a0000000-0000-4000-8000-000000000004";
@@ -21,7 +24,7 @@ interface RangeSpec {
  * displays correctly while staying ready for real variants to be added
  * later via the admin/database, without inventing any.
  */
-function rangeProduct({ n, provider, slug, minPrice, maxPrice, featured = false }: RangeSpec): Product {
+function rangeProduct({ n, provider, slug, minPrice, maxPrice, featured = false }: RangeSpec): ProductSeed {
   const id = `20000000-0000-4000-8000-${String(n).padStart(12, "0")}`;
   const variantId = `30000000-0000-4000-8000-${String(n).padStart(12, "0")}`;
   return {
@@ -67,7 +70,7 @@ interface SingleSpec {
 }
 
 /** Products explicitly specified as "Standard / Single Product" — one default variant, one price. */
-function singleProduct({ n, provider, slug, price, featured = false }: SingleSpec): Product {
+function singleProduct({ n, provider, slug, price, featured = false }: SingleSpec): ProductSeed {
   const id = `20000000-0000-4000-8000-${String(n).padStart(12, "0")}`;
   const variantId = `30000000-0000-4000-8000-${String(n).padStart(12, "0")}`;
   return {
@@ -133,7 +136,7 @@ function explicitVariantsProduct({
   shortDescription,
   variants,
   featured = false,
-}: ExplicitVariantsSpec): Product {
+}: ExplicitVariantsSpec): ProductSeed {
   const id = `20000000-0000-4000-8000-${String(n).padStart(12, "0")}`;
   const prices = variants.map((v) => v.price);
   const minPrice = Math.min(...prices);
@@ -169,7 +172,7 @@ function explicitVariantsProduct({
   };
 }
 
-export const CLOUD_ACCOUNTS: Product[] = [
+export const CLOUD_ACCOUNTS: ProductSeed[] = [
   rangeProduct({ n: 1, provider: "OVHCloud", slug: "ovhcloud-account", minPrice: 35, maxPrice: 999 }),
   singleProduct({ n: 2, provider: "IBM Cloud", slug: "ibm-cloud-account", price: 40 }),
   {
