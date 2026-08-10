@@ -26,9 +26,21 @@ interface ProductPurchasePanelProps {
    * the page still has exactly one H1.
    */
   headingLevel?: "h1" | "h2";
+  /**
+   * Subtle premium refinement: a more prominent accent-colored Account
+   * Variant value, a larger accent-colored price, and a matching accent on
+   * the selected variant card. Off by default — every page keeps its
+   * current pricing-card styling unless explicitly opted in.
+   */
+  highlightVariant?: boolean;
 }
 
-export function ProductPurchasePanel({ product, category, headingLevel = "h1" }: ProductPurchasePanelProps) {
+export function ProductPurchasePanel({
+  product,
+  category,
+  headingLevel = "h1",
+  highlightVariant,
+}: ProductPurchasePanelProps) {
   const Heading = headingLevel;
   const defaultVariant = product.variants.find((v) => v.isDefault) ?? product.variants[0];
   const [selectedId, setSelectedId] = useState(defaultVariant?.id ?? "");
@@ -66,11 +78,23 @@ export function ProductPurchasePanel({ product, category, headingLevel = "h1" }:
       </div>
 
       {variantLabel ? (
-        <div className="mt-5 rounded-lg border border-accent/20 bg-accent/5 px-3.5 py-2.5">
+        <div
+          className={cn(
+            "mt-5 rounded-lg border px-3.5 py-2.5",
+            highlightVariant ? "border-accent-cyan/30 bg-accent-cyan/[0.07]" : "border-accent/20 bg-accent/5",
+          )}
+        >
           <span className="block text-[11px] font-semibold uppercase tracking-wide text-accent-cyan">
             Account Variant
           </span>
-          <span className="mt-0.5 block break-words text-sm font-medium text-ink">{variantLabel}</span>
+          <span
+            className={cn(
+              "mt-0.5 block break-words text-sm",
+              highlightVariant ? "font-semibold text-accent-cyan" : "font-medium text-ink",
+            )}
+          >
+            {variantLabel}
+          </span>
         </div>
       ) : null}
 
@@ -79,7 +103,8 @@ export function ProductPurchasePanel({ product, category, headingLevel = "h1" }:
           price={selectedVariant.price}
           compareAtPrice={isRange ? product.compareAtPrice : selectedVariant.compareAtPrice}
           isRange={isRange}
-          size="lg"
+          size={highlightVariant ? "xl" : "lg"}
+          accent={highlightVariant}
         />
       </div>
 
@@ -95,7 +120,12 @@ export function ProductPurchasePanel({ product, category, headingLevel = "h1" }:
       ) : null}
 
       <div className="mt-6">
-        <VariantSelector variants={product.variants} selectedId={selectedVariant.id} onSelect={setSelectedId} />
+        <VariantSelector
+          variants={product.variants}
+          selectedId={selectedVariant.id}
+          onSelect={setSelectedId}
+          accentSelected={highlightVariant}
+        />
       </div>
 
       <OrderButton

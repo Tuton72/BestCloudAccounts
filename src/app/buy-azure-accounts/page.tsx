@@ -53,6 +53,7 @@ export default async function AzureAccountsPage() {
         hideFaq
         hideFinalCta
         hideRelatedProducts
+        highlightVariant
       />
 
       <AzureArticle />

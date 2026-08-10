@@ -46,6 +46,14 @@ interface ProductDetailProps {
   hideFinalCta?: boolean;
   /** Hides the "Related ..." section here — for pages that render it themselves further down the page instead. */
   hideRelatedProducts?: boolean;
+  /**
+   * Subtle premium refinement of the pricing card: a more prominent
+   * accent-colored Account Variant value, a larger accent-colored price,
+   * and a matching accent on the selected variant card. Off by default —
+   * every page keeps its current pricing-card styling unless explicitly
+   * opted in.
+   */
+  highlightVariant?: boolean;
 }
 
 /**
@@ -71,6 +79,7 @@ export async function ProductDetail({
   hideFaq,
   hideFinalCta,
   hideRelatedProducts,
+  highlightVariant,
 }: ProductDetailProps) {
   const category = await getCategoryBySlug(categorySlug);
   const product = category ? await getProductBySlug(categorySlug, slug) : null;
@@ -120,8 +129,13 @@ export async function ProductDetail({
       ) : null}
 
       <Container id="purchase" className="grid grid-cols-1 gap-8 pb-16 lg:grid-cols-2 lg:gap-10">
-        <ProductHero />
-        <ProductPurchasePanel product={product} category={category} headingLevel={topIntro ? "h2" : "h1"} />
+        <ProductHero image={product.image} imageAlt={product.image ? `${product.name} illustration` : undefined} />
+        <ProductPurchasePanel
+          product={product}
+          category={category}
+          headingLevel={topIntro ? "h2" : "h1"}
+          highlightVariant={highlightVariant}
+        />
       </Container>
 
       {showOverviewBlock ? (

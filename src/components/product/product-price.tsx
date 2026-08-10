@@ -11,21 +11,31 @@ interface ProductPriceProps {
    */
   compareAtPrice?: number | null;
   isRange?: boolean;
-  size?: "md" | "lg";
+  /** "xl" is a larger, more prominent price display — opt-in, existing sizes unaffected. */
+  size?: "md" | "lg" | "xl";
+  /** Colors the number in the site's teal accent instead of plain ink — opt-in, off by default. */
+  accent?: boolean;
   className?: string;
 }
 
-export function ProductPrice({ price, compareAtPrice, isRange, size = "md", className }: ProductPriceProps) {
-  const numberSize = size === "lg" ? "text-3xl" : "text-xl";
+const SIZE_CLASSES: Record<NonNullable<ProductPriceProps["size"]>, string> = {
+  md: "text-xl",
+  lg: "text-3xl",
+  xl: "text-4xl sm:text-5xl",
+};
+
+export function ProductPrice({ price, compareAtPrice, isRange, size = "md", accent, className }: ProductPriceProps) {
+  const numberSize = SIZE_CLASSES[size];
+  const numberTone = accent ? "text-accent-cyan" : "text-ink";
 
   if (isRange && compareAtPrice) {
     return (
       <span className={cn("font-semibold", numberSize, className)}>
         <span className="text-accent">$</span>
-        <span className="text-ink">{formatNumber(price)}</span>
+        <span className={numberTone}>{formatNumber(price)}</span>
         <span className="mx-1 text-ink-muted">–</span>
         <span className="text-accent">$</span>
-        <span className="text-ink">{formatNumber(compareAtPrice)}</span>
+        <span className={numberTone}>{formatNumber(compareAtPrice)}</span>
       </span>
     );
   }
@@ -34,7 +44,7 @@ export function ProductPrice({ price, compareAtPrice, isRange, size = "md", clas
     <span className={cn("flex items-baseline gap-2", className)}>
       <span className={cn("font-semibold", numberSize)}>
         <span className="text-accent">$</span>
-        <span className="text-ink">{formatNumber(price)}</span>
+        <span className={numberTone}>{formatNumber(price)}</span>
       </span>
       {compareAtPrice && compareAtPrice > price ? (
         <span className="text-sm text-ink-muted line-through">{formatPrice(compareAtPrice)}</span>
