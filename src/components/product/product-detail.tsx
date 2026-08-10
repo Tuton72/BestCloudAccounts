@@ -26,6 +26,26 @@ interface ProductDetailProps {
    * current single hero+panel layout unless explicitly opted in.
    */
   showVariantPricingGrid?: boolean;
+  /**
+   * Optional page-specific SEO intro rendered between the breadcrumb and
+   * the pricing area, inside the same header strip (matching the heading
+   * style already used on category listing pages). When set, it becomes
+   * the page's H1 and the purchase panel's own heading is demoted to h2
+   * so the page keeps exactly one H1.
+   */
+  topIntro?: { title: string; paragraph: string };
+  /** Hides the standalone "Specifications" section below the pricing area. */
+  hideSpecifications?: boolean;
+  /** Hides the standalone "Features" section below the pricing area (the same bullets still show inside the purchase panel). */
+  hideFeatures?: boolean;
+  /** Hides the generic "Four Steps to Your Cloud Account" process section. */
+  hideHowItWorks?: boolean;
+  /** Hides the generic shared FAQ block below the pricing area. */
+  hideFaq?: boolean;
+  /** Hides the generic FinalCTA at the end — for pages whose own long-form content already ends with an appropriate CTA. */
+  hideFinalCta?: boolean;
+  /** Hides the "Related ..." section here — for pages that render it themselves further down the page instead. */
+  hideRelatedProducts?: boolean;
 }
 
 /**
@@ -40,7 +60,18 @@ const CATEGORY_PARENT_CRUMB: Partial<Record<CategorySlug, Crumb>> = {
   "buy-aws-accounts": { label: "Cloud Accounts", href: "/cloud-accounts" },
 };
 
-export async function ProductDetail({ categorySlug, slug, showVariantPricingGrid }: ProductDetailProps) {
+export async function ProductDetail({
+  categorySlug,
+  slug,
+  showVariantPricingGrid,
+  topIntro,
+  hideSpecifications,
+  hideFeatures,
+  hideHowItWorks,
+  hideFaq,
+  hideFinalCta,
+  hideRelatedProducts,
+}: ProductDetailProps) {
   const category = await getCategoryBySlug(categorySlug);
   const product = category ? await getProductBySlug(categorySlug, slug) : null;
 
@@ -48,8 +79,13 @@ export async function ProductDetail({ categorySlug, slug, showVariantPricingGrid
     notFound();
   }
 
-  const related = await getRelatedProducts(product);
+  const related = hideRelatedProducts ? [] : await getRelatedProducts(product);
   const jsonLd = buildProductJsonLd(product, category);
+
+  const showOverview = Boolean(product.description);
+  const showSpecifications = !hideSpecifications && product.specifications.length > 0;
+  const showFeatures = !hideFeatures && product.features.length > 0;
+  const showOverviewBlock = showOverview || showSpecifications || showFeatures;
 
   return (
     <div>
@@ -65,6 +101,12 @@ export async function ProductDetail({ categorySlug, slug, showVariantPricingGrid
               { label: product.name },
             ]}
           />
+          {topIntro ? (
+            <>
+              <h1 className="mt-4 text-3xl font-semibold tracking-tight text-ink sm:text-4xl">{topIntro.title}</h1>
+              <p className="mt-2 max-w-2xl text-ink-muted">{topIntro.paragraph}</p>
+            </>
+          ) : null}
         </Container>
       </div>
 
@@ -79,34 +121,38 @@ export async function ProductDetail({ categorySlug, slug, showVariantPricingGrid
 
       <Container id="purchase" className="grid grid-cols-1 gap-8 pb-16 lg:grid-cols-2 lg:gap-10">
         <ProductHero />
-        <ProductPurchasePanel product={product} category={category} />
+        <ProductPurchasePanel product={product} category={category} headingLevel={topIntro ? "h2" : "h1"} />
       </Container>
 
-      <div className="border-t border-border">
-        <Container className="flex flex-col gap-16 py-16 sm:py-20">
-          {product.description ? (
-            <section aria-labelledby="overview-heading">
-              <h2 id="overview-heading" className="text-2xl font-semibold tracking-tight text-ink">
-                Overview
-              </h2>
-              <p className="mt-4 max-w-3xl text-ink-muted">{product.description}</p>
-            </section>
-          ) : null}
+      {showOverviewBlock ? (
+        <div className="border-t border-border">
+          <Container className="flex flex-col gap-16 py-16 sm:py-20">
+            {showOverview ? (
+              <section aria-labelledby="overview-heading">
+                <h2 id="overview-heading" className="text-2xl font-semibold tracking-tight text-ink">
+                  Overview
+                </h2>
+                <p className="mt-4 max-w-3xl text-ink-muted">{product.description}</p>
+              </section>
+            ) : null}
 
-          <SpecificationGrid specifications={product.specifications} />
-          <ProductFeatures features={product.features} />
-        </Container>
-      </div>
+            {showSpecifications ? <SpecificationGrid specifications={product.specifications} /> : null}
+            {showFeatures ? <ProductFeatures features={product.features} /> : null}
+          </Container>
+        </div>
+      ) : null}
 
-      <HowItWorks />
+      {hideHowItWorks ? null : <HowItWorks />}
 
-      <div className="border-t border-border">
-        <Container className="py-16 sm:py-20">
-          <Faq items={product.faqs} align="left" />
-        </Container>
-      </div>
+      {hideFaq ? null : (
+        <div className="border-t border-border">
+          <Container className="py-16 sm:py-20">
+            <Faq items={product.faqs} align="left" />
+          </Container>
+        </div>
+      )}
 
-      {related.length > 0 ? (
+      {!hideRelatedProducts && related.length > 0 ? (
         <div className="border-t border-border">
           <Container className="py-16 sm:py-20">
             <RelatedProducts products={related} category={category} />
@@ -114,7 +160,7 @@ export async function ProductDetail({ categorySlug, slug, showVariantPricingGrid
         </div>
       ) : null}
 
-      <FinalCTA />
+      {hideFinalCta ? null : <FinalCTA />}
     </div>
   );
 }

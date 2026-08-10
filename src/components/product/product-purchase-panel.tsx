@@ -19,9 +19,17 @@ const STOCK_LABEL: Record<string, { label: string; tone: string }> = {
 interface ProductPurchasePanelProps {
   product: Product;
   category: Category;
+  /**
+   * Heading level for the product name. Defaults to "h1" (the page's only
+   * H1 on every normal product page). Pages that render their own H1
+   * above this panel (e.g. a page-specific intro) pass "h2" instead, so
+   * the page still has exactly one H1.
+   */
+  headingLevel?: "h1" | "h2";
 }
 
-export function ProductPurchasePanel({ product, category }: ProductPurchasePanelProps) {
+export function ProductPurchasePanel({ product, category, headingLevel = "h1" }: ProductPurchasePanelProps) {
+  const Heading = headingLevel;
   const defaultVariant = product.variants.find((v) => v.isDefault) ?? product.variants[0];
   const [selectedId, setSelectedId] = useState(defaultVariant?.id ?? "");
 
@@ -46,9 +54,9 @@ export function ProductPurchasePanel({ product, category }: ProductPurchasePanel
     <div className="rounded-2xl border border-border bg-surface-elevated p-6 sm:p-7 shadow-[0_0_0_1px_rgba(16,185,129,0.06)]">
       <ProductBadgeRow provider={product.provider} category={category} badge={product.badge} />
 
-      <h1 className="mt-4 text-2xl font-semibold leading-tight tracking-tight text-ink sm:text-3xl">
+      <Heading className="mt-4 text-2xl font-semibold leading-tight tracking-tight text-ink sm:text-3xl">
         {product.name}
-      </h1>
+      </Heading>
 
       {product.shortDescription ? <p className="mt-2 text-ink-muted">{product.shortDescription}</p> : null}
 
