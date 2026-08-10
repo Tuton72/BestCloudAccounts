@@ -1,5 +1,6 @@
 interface ComparisonTableProps {
-  heading: string;
+  /** Optional — omit when the table is embedded within a parent section that already has its own heading. */
+  heading?: string;
   intro?: string;
   columns: string[];
   rows: { label: string; cells: string[] }[];
@@ -15,10 +16,12 @@ interface ComparisonTableProps {
 export function ComparisonTable({ heading, intro, columns, rows, closing }: ComparisonTableProps) {
   return (
     <div className="mx-auto max-w-[1160px]">
-      <div className="mx-auto max-w-[880px]">
-        <h2 className="text-2xl font-semibold tracking-tight text-ink sm:text-3xl">{heading}</h2>
-        {intro ? <p className="mt-4 leading-relaxed text-ink-secondary">{intro}</p> : null}
-      </div>
+      {heading || intro ? (
+        <div className="mx-auto max-w-[880px]">
+          {heading ? <h2 className="text-2xl font-semibold tracking-tight text-ink sm:text-3xl">{heading}</h2> : null}
+          {intro ? <p className="mt-4 leading-relaxed text-ink-secondary">{intro}</p> : null}
+        </div>
+      ) : null}
       <div className="mt-8 overflow-x-auto rounded-2xl border border-border">
         <table className="w-full min-w-[760px] border-collapse text-left text-sm">
           <thead>
