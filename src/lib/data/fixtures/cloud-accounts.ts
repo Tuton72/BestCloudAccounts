@@ -215,18 +215,22 @@ export const CLOUD_ACCOUNTS: Product[] = [
       { name: "DigitalOcean Close Port 2000 Droplet Account", slug: "close-port-2000-droplet", price: 16000 },
     ],
   }),
-  explicitVariantsProduct({
-    n: 13,
-    provider: "Azure",
-    slug: "azure-accounts",
-    name: "Buy Azure Accounts",
-    shortDescription: "Azure account available in multiple configuration tiers.",
-    featured: true,
-    variants: [
-      { name: "Azure Free Trial With $200 Credit Account", slug: "free-trial-200-credit", price: 25 },
-      { name: "Azure Pay-As-Go $200 Credit Account", slug: "pay-as-go-200-credit", price: 35 },
-      { name: "Azure $1k Credit Account", slug: "1k-credit", price: 220 },
-      { name: "Azure $5k Credit Account", slug: "5k-credit", price: 750 },
-    ],
-  }),
+  {
+    ...explicitVariantsProduct({
+      n: 13,
+      provider: "Azure",
+      slug: "azure-accounts",
+      name: "Buy Azure Accounts",
+      shortDescription: "Azure account available in multiple configuration tiers.",
+      featured: true,
+      variants: [
+        { name: "Azure Free Trial With $200 Credit Account", slug: "free-trial-200-credit", price: 25 },
+        { name: "Azure Pay-As-Go $200 Credit Account", slug: "pay-as-go-200-credit", price: 35 },
+        { name: "Azure $1k Credit Account", slug: "1k-credit", price: 220 },
+        { name: "Azure $5k Credit Account", slug: "5k-credit", price: 750 },
+      ],
+    }),
+    // Supplied by the business — see public/images/products/azure-account.png.
+    image: "/images/products/azure-account.png",
+  },
 ];
